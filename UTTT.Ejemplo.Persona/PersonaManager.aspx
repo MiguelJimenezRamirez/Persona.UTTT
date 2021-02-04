@@ -80,7 +80,7 @@
     
     &nbsp;&nbsp;<br />
 		<br />
-&nbsp;<asp:Calendar required oninput="calendar(this);" ID="dteCalendar" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" Width="330px">
+&nbsp;<asp:Calendar required oninput="calendar(this);" ID="dteCalendar" runat="server" BackColor="White" BorderColor="Black" BorderStyle="Solid" CellSpacing="1" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="250px" NextPrevFormat="ShortMonth" Width="330px" OnSelectionChanged="dteCalendar_SelectionChanged">
 			<DayHeaderStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" Height="8pt" />
 			<DayStyle BackColor="#CCCCCC" />
 			<NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="White" />
@@ -99,9 +99,9 @@
 		<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtAnio" ErrorMessage="Año Requerido"></asp:RequiredFieldValidator>
 		<br />
 		Dia
-		<asp:TextBox ID="txtDia" required runat="server" maxlength="2"  oninput="maximoDia(this);" onkeypress="return SoloNumeros(event);"></asp:TextBox>
-		Mes<asp:TextBox ID="txtMes" required runat="server" maxlength="2" oninput="maximoMes(this);" onkeypress="return SoloNumeros(event);"></asp:TextBox>
-		Año<asp:TextBox ID="txtAnio"  required runat="server"  maxlength="4"  onkeypress="return SoloNumeros(event);"></asp:TextBox>
+		<asp:TextBox ID="txtDia" required ENABLED="false" runat="server" maxlength="2"  oninput="maximoDia(this);" onkeypress="return SoloNumeros(event);"></asp:TextBox>
+		Mes<asp:TextBox ID="txtMes" required ENABLED="false" runat="server" maxlength="2" oninput="maximoMes(this);" onkeypress="return SoloNumeros(event);"></asp:TextBox>
+		Año<asp:TextBox ID="txtAnio"  required ENABLED="false" runat="server"  maxlength="4"  onkeypress="return SoloNumeros(event);"></asp:TextBox>
 		<br />
 		<br />
 		Numero de Hermanos<asp:TextBox ID="txtNumeroHermanos"  oninput="maximoHer(this);" maxlength="2" onkeypress="return SoloNumeros(event)" required runat="server" style="margin-left: 4px" Width="250px"></asp:TextBox>

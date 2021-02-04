@@ -339,10 +339,9 @@ namespace UTTT.Ejemplo.Persona
                 return false;
             }
 
-            
-            int Validador = (int.Parse(txtDia.Text)*24*60*60)+(int.Parse(txtMes.Text) * 30 * 24 * 60 * 60)+((2021-int.Parse(txtAnio.Text))*365*24*60*60);
-            int mayor = 568024668;
-            if (Validador < mayor) {
+            DateTime fechaNaci = new DateTime(int.Parse(txtAnio.Text),int.Parse(txtMes.Text),int.Parse(txtDia.Text));
+            int edad = (DateTime.Now.Subtract(fechaNaci).Days/365);
+            if (edad < 18) {
                 _mensaje = "Eres menor de edad";
                 return false;
             }
@@ -546,7 +545,7 @@ namespace UTTT.Ejemplo.Persona
         {
             string body = error;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("18301044@uttt.edu.mx", "Contraseña");
+            smtp.Credentials = new NetworkCredential("18301044@uttt.edu.mx", "MJR9416M");
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.EnableSsl = true;
             smtp.UseDefaultCredentials = false;
@@ -556,7 +555,7 @@ namespace UTTT.Ejemplo.Persona
             mail.Subject = ("Error");
             mail.Body = body;
 
-           smtp.Send(mail);
+           // smtp.Send(mail);
         }
 
 
@@ -575,6 +574,14 @@ namespace UTTT.Ejemplo.Persona
             _control.Items.FindByText(_value).Selected = true;
         }
 
-        #endregion 
-    }
+		#endregion
+
+		protected void dteCalendar_SelectionChanged(object sender, EventArgs e)
+		{
+            txtDia.Text = dteCalendar.SelectedDate.Day.ToString();
+            txtMes.Text = dteCalendar.SelectedDate.AddDays(7).Month.ToString();
+            txtAnio.Text = dteCalendar.SelectedDate.AddDays(7).Year.ToString();
+           
+		}
+	}
 }
