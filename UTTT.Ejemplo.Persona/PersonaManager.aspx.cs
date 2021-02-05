@@ -15,7 +15,6 @@ using UTTT.Ejemplo.Persona.Control;
 using UTTT.Ejemplo.Persona.Control.Ctrl;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
-using System.Net;
 #endregion
 
 namespace UTTT.Ejemplo.Persona
@@ -376,7 +375,7 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "El campo Codigo postal es requerido ";
                 return false;
             }
-            Regex patternCDP = new Regex("^d{4,5}$");
+            Regex patternCDP = new Regex("^[0-5][0-9]{3}[0-9]$");
             bool respues2 = patternCDP.IsMatch(_persona.intCodigoPostal.ToString());
             if (respues2)
             {
@@ -390,7 +389,8 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "El campo RFC es requerido ";
                 return false;
             }
-            Regex patternRFC = new Regex("^([A-ZÑ&]{3,4}) ?(?:- ?)?(d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]d|3[01])) ?(?:- ?)?([A-Zd]{2})([Ad])$");
+                                            
+            Regex patternRFC = new Regex("^[a-zA-Z]{3,4}(d{6})((D|d){2,3})?$");
             bool respues = patternRFC.IsMatch(_persona.strRFC.ToString());
             if (respues)
 			{
@@ -543,17 +543,25 @@ namespace UTTT.Ejemplo.Persona
         }
         public void error(string error)
         {
-            string body = error;
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("18301044@uttt.edu.mx", "MJR9416M");
-            smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.EnableSsl = true;
-            smtp.UseDefaultCredentials = false;
-            MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("18301044@uttt.edu.mx", "Error en el servidor Ejemplo Estudiante");
-            mail.To.Add(new MailAddress("18301044@uttt.edu.mx"));
-            mail.Subject = ("Error");
-            mail.Body = body;
+            string body = "<p>"+error+"<p>";
+            string emailOrigen = "18301044@uttt.edu.mx";
+            string emailDestino = "18301044@uttt.edu.mx";
+            string constrase = "MJR9416M";
+            MailMessage oMailMessage = new MailMessage(emailOrigen, emailDestino,"Error en servidor UTTT",body);
+            
+            oMailMessage.IsBodyHtml = true;
+
+            SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+            oSmtpClient.EnableSsl = true;
+            oSmtpClient.UseDefaultCredentials = false;
+            //oSmtpClient.Host = "smpt.gmail.com";
+            oSmtpClient.Port = 587;
+            oSmtpClient.Credentials = new System.Net.NetworkCredential(emailOrigen,constrase);
+
+            oSmtpClient.Send(oMailMessage);
+            oSmtpClient.Dispose();
+
+
 
            // smtp.Send(mail);
         }
