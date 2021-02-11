@@ -99,6 +99,8 @@ C:\Users\niki_\Desktop\Subir\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug
 C:\Users\niki_\Desktop\Subir\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CopyComplete
 C:\Users\niki_\Desktop\Subir\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.dll
 C:\Users\niki_\Desktop\Subir\UTTT.Ejemplo.Persona\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.pdb
+C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csprojAssemblyReference.cache
+C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CoreCompileInputs.cache
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.dll.config
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.dll
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.pdb
@@ -110,8 +112,6 @@ C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Linq.Data.dll.config
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.Control.pdb
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\UTTT.Ejemplo.Persona.Data.pdb
-C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CoreCompileInputs.cache
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CopyComplete
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.dll
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.pdb
-C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csprojAssemblyReference.cache

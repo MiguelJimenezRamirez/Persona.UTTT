@@ -15,15 +15,6 @@ namespace UTTT.Ejemplo.Persona
 	{
 
 		/// <summary>
-		/// Control Label1.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label1;
-
-		/// <summary>
 		/// Control lblAccion.
 		/// </summary>
 		/// <remarks>
@@ -31,6 +22,24 @@ namespace UTTT.Ejemplo.Persona
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label lblAccion;
+
+		/// <summary>
+		/// Control Label3.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label3;
+
+		/// <summary>
+		/// Control Label2.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label2;
 
 		/// <summary>
 		/// Control ddlSexo.
@@ -49,6 +58,15 @@ namespace UTTT.Ejemplo.Persona
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+		/// <summary>
+		/// Control Label1.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label1;
 
 		/// <summary>
 		/// Control txtClaveUnica.
@@ -78,6 +96,15 @@ namespace UTTT.Ejemplo.Persona
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
 
 		/// <summary>
+		/// Control Label4.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label4;
+
+		/// <summary>
 		/// Control txtNombre.
 		/// </summary>
 		/// <remarks>
@@ -94,6 +121,24 @@ namespace UTTT.Ejemplo.Persona
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+
+		/// <summary>
+		/// Control RegularExpressionValidator5.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
+
+		/// <summary>
+		/// Control Label5.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label5;
 
 		/// <summary>
 		/// Control txtAPaterno.
@@ -114,6 +159,24 @@ namespace UTTT.Ejemplo.Persona
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
 
 		/// <summary>
+		/// Control RegularExpressionValidator6.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+
+		/// <summary>
+		/// Control Label6.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label6;
+
+		/// <summary>
 		/// Control txtAMaterno.
 		/// </summary>
 		/// <remarks>
@@ -121,6 +184,15 @@ namespace UTTT.Ejemplo.Persona
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox txtAMaterno;
+
+		/// <summary>
+		/// Control RegularExpressionValidator7.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
 
 		/// <summary>
 		/// Control dteCalendar.
@@ -285,6 +357,15 @@ namespace UTTT.Ejemplo.Persona
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
 		/// <summary>
+		/// Control lblMensaje.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label lblMensaje;
+
+		/// <summary>
 		/// Control btnAceptar.
 		/// </summary>
 		/// <remarks>
@@ -301,14 +382,5 @@ namespace UTTT.Ejemplo.Persona
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Button btnCancelar;
-
-		/// <summary>
-		/// Control lblMensaje.
-		/// </summary>
-		/// <remarks>
-		/// Campo generado automáticamente.
-		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label lblMensaje;
 	}
 }

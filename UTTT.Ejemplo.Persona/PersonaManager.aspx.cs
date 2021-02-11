@@ -82,6 +82,7 @@ namespace UTTT.Ejemplo.Persona
                     }
                     else
                     {
+                        ddlSexo.Items.FindByValue("-1").Enabled = false;
                         this.lblAccion.Text = "Editar";
                         this.txtNombre.Text = this.baseEntity.strNombre;
                         this.txtAPaterno.Text = this.baseEntity.strAPaterno;
@@ -98,7 +99,7 @@ namespace UTTT.Ejemplo.Persona
                         txtMes.Text = this.dteCalendar.SelectedDate.Month.ToString();
                         txtAnio.Text = this.dteCalendar.SelectedDate.Year.ToString();
                         this.txtCorreoElectronico.Text = this.baseEntity.strCorreoElectronico;
-                        this.txtCodigoPostal.Text = this.baseEntity.intCodigoPostal.ToString();
+                        this.txtCodigoPostal.Text = this.baseEntity.strCodigoP;
                         this.txtRFC.Text = this.baseEntity.strRFC;
                         
                         //Funcionalidad para numeros de hermanos
@@ -133,13 +134,6 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
                     //El calendar
-                    //DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
-                    //persona.dtFechaDNaci = fechaNacimiento;
-
-                    //string dateString = ;
-                    //string format = "dd/MM/yyyy";
-                    //DateTime dateTime = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
-
                     DateTime dateTime = Convert.ToDateTime(txtMes.Text + "/" + txtDia.Text + "/" + txtAnio.Text, CultureInfo.InvariantCulture);
                     persona.dtFechaDNaci = dateTime;
 
@@ -149,7 +143,7 @@ namespace UTTT.Ejemplo.Persona
                     //Correo Electronico
                     persona.strCorreoElectronico = this.txtCorreoElectronico.Text.Trim();
                     //Codigo postal
-                    persona.intCodigoPostal = int.Parse(this.txtCodigoPostal.Text);
+                    persona.strCodigoP = this.txtCodigoPostal.Text;
                     //RFC
                     persona.strRFC = this.txtRFC.Text.Trim();
                     //Funcionalidad para hermanos
@@ -193,22 +187,16 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
                     //El calendar
-                    //string fecha = txtDia.Text+"/"+txtMes.Text+"/"+txtAnio;
-                    //DateTime dt = DateTime.Parse(fecha);
-
-                    //DateTime fechaNacimiento = this.dteCalendar.SelectedDate.Date;
-                    //persona.dtFechaDNaci = dt;
-
                     DateTime dateTime = Convert.ToDateTime(txtMes.Text + "/" + txtDia.Text + "/" + txtAnio.Text, CultureInfo.InvariantCulture);
                     persona.dtFechaDNaci = dateTime;
-
                     //agregar hermanos
                     persona.intNumHermano =  int.Parse(this.txtNumeroHermanos.Text);
                     //Correo Electronico
                     persona.strCorreoElectronico = this.txtCorreoElectronico.Text.Trim();
                     //Codigo postal
-                    persona.intCodigoPostal = int.Parse(this.txtCodigoPostal.Text);
+                    persona.strCodigoP = this.txtCodigoPostal.Text;
                     //RFC
+                    persona.strRFC = this.txtRFC.Text.Trim();
                     string mensaje = string.Empty;
                     if (!this.validacion(persona, ref mensaje, txtDia.Text, txtMes.Text, txtAnio.Text))
                     {
@@ -231,7 +219,6 @@ namespace UTTT.Ejemplo.Persona
                         return;
 
                     }
-                    persona.strRFC = this.txtRFC.Text.Trim();
                     dcGuardar.SubmitChanges();
                     this.showMessage("El registro se edito correctamente.");
                     this.Response.Redirect("~/PersonaPrincipal.aspx", false);
@@ -239,10 +226,11 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-                
+                string datoAcara = _e.ToString()+ ". Clave unica: "+txtClaveUnica.Text+". Nombre: "+txtNombre.Text+". NombreP: "+txtAPaterno.Text+". NombreM: "+txtAMaterno.Text
+                    +". Numero Hermanos: "+txtNumeroHermanos.Text+". Correo: "+txtCorreoElectronico.Text+". RFC: "+ txtRFC.Text+". Codigo: "+txtCodigoPostal.Text;
                 this.showMessageException(_e.Message);
-                error(_e.ToString());
-                Response.Redirect("~/Error.aspx", false);
+                error(datoAcara.ToString());
+               // Response.Redirect("~/Error.aspx", false);
             }
         }
 
@@ -254,7 +242,7 @@ namespace UTTT.Ejemplo.Persona
             }
             catch (Exception _e)
             {
-           
+                
                 this.showMessage("Ha ocurrido un error inesperado");
                 error(_e.ToString());
                 Response.Redirect("~/Error.aspx", false);
@@ -337,13 +325,17 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "Solo se permienten Letras en Apellido Materno";
                 return false;
             }
-
-            DateTime fechaNaci = new DateTime(int.Parse(txtAnio.Text),int.Parse(txtMes.Text),int.Parse(txtDia.Text));
-            int edad = (DateTime.Now.Subtract(fechaNaci).Days/365);
+            int diaNaci = int.Parse(txtDia.Text);
+            int mesNaci = int.Parse(txtMes.Text);
+            int anioNaci = int.Parse(txtAnio.Text);
+            
+            DateTime fechaNaci = new DateTime(anioNaci, mesNaci, diaNaci);
+            double edad = (DateTime.Now.Subtract(fechaNaci).Days/365.3);
             if (edad < 18) {
-                _mensaje = "Eres menor de edad";
+                _mensaje = "No se admiten menores de edad";
                 return false;
             }
+
             if (_persona.intNumHermano > 20 ) {
                 _mensaje = "Numero de hermanos no valido";
                 return false;
@@ -370,31 +362,31 @@ namespace UTTT.Ejemplo.Persona
             }
 
 			
-            if (_persona.intCodigoPostal.ToString().Equals(String.Empty))
+            if (_persona.strCodigoP.ToString().Equals(String.Empty))
             {
                 _mensaje = "El campo Codigo postal es requerido ";
                 return false;
             }
-            Regex patternCDP = new Regex("^[0-5][0-9]{3}[0-9]$");
-            bool respues2 = patternCDP.IsMatch(_persona.intCodigoPostal.ToString());
-            if (respues2)
-            {
-                _mensaje = "Formato no admitido para Codigo Postal";
-                return false;
-            }
+			//Regex patternCDP = new Regex("^[0-5][0-9]{3}[0-9]$");
+			//bool respuesCDP = patternCDP.IsMatch(_persona.strCodigoP.ToString());
+			//if (respuesCDP)
+			//{
+			//	_mensaje = "Formato no admitido para Codigo Postal";
+			//	return false;
+			//}
 
-            //Validar RFC
-            if (_persona.strRFC.Equals(String.Empty))
+			//Validar RFC
+			if (_persona.strRFC.Equals(String.Empty))
             {
                 _mensaje = "El campo RFC es requerido ";
                 return false;
             }
-                                            
+                                        
             Regex patternRFC = new Regex("^[a-zA-Z]{3,4}(d{6})((D|d){2,3})?$");
             bool respues = patternRFC.IsMatch(_persona.strRFC.ToString());
             if (respues)
 			{
-                _mensaje = "Formato no admitido para RFC";
+                _mensaje = respuesta.ToString();
                 return false;
             }
             
@@ -560,9 +552,6 @@ namespace UTTT.Ejemplo.Persona
 
             oSmtpClient.Send(oMailMessage);
             oSmtpClient.Dispose();
-
-
-
            // smtp.Send(mail);
         }
 
@@ -590,6 +579,11 @@ namespace UTTT.Ejemplo.Persona
             txtMes.Text = dteCalendar.SelectedDate.AddDays(7).Month.ToString();
             txtAnio.Text = dteCalendar.SelectedDate.AddDays(7).Year.ToString();
            
+		}
+
+		protected void txtClaveUnica_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

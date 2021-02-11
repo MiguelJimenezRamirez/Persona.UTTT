@@ -461,6 +461,10 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 		
 		private string _strRFC;
 		
+		private System.Data.Linq.Binary _strCodigoPostal;
+		
+		private string _strCodigoP;
+		
 		private EntitySet<Direccion> _Direccion;
 		
 		private EntityRef<CatSexo> _CatSexo;
@@ -491,6 +495,10 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
     partial void OnintCodigoPostalChanged();
     partial void OnstrRFCChanging(string value);
     partial void OnstrRFCChanged();
+    partial void OnstrCodigoPostalChanging(System.Data.Linq.Binary value);
+    partial void OnstrCodigoPostalChanged();
+    partial void OnstrCodigoPChanging(string value);
+    partial void OnstrCodigoPChanged();
     #endregion
 		
 		public Persona()
@@ -720,6 +728,46 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 					this._strRFC = value;
 					this.SendPropertyChanged("strRFC");
 					this.OnstrRFCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCodigoPostal", DbType="VarBinary(6)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary strCodigoPostal
+		{
+			get
+			{
+				return this._strCodigoPostal;
+			}
+			set
+			{
+				if ((this._strCodigoPostal != value))
+				{
+					this.OnstrCodigoPostalChanging(value);
+					this.SendPropertyChanging();
+					this._strCodigoPostal = value;
+					this.SendPropertyChanged("strCodigoPostal");
+					this.OnstrCodigoPostalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_strCodigoP", DbType="VarChar(6)")]
+		public string strCodigoP
+		{
+			get
+			{
+				return this._strCodigoP;
+			}
+			set
+			{
+				if ((this._strCodigoP != value))
+				{
+					this.OnstrCodigoPChanging(value);
+					this.SendPropertyChanging();
+					this._strCodigoP = value;
+					this.SendPropertyChanged("strCodigoP");
+					this.OnstrCodigoPChanged();
 				}
 			}
 		}
