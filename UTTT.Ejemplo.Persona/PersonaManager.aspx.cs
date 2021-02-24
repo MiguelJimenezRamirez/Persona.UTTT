@@ -74,11 +74,12 @@ namespace UTTT.Ejemplo.Persona
                     {
                         lblAccion.Text = "Agregar";
                         DateTime tiempo = new DateTime(DateTime.Now.Year, DateTime.Now.Month,DateTime.Now.Day);
-                        this.dteCalendar.TodaysDate = tiempo;
-                        this.dteCalendar.SelectedDate = tiempo;
-                        txtDia.Text = this.dteCalendar.SelectedDate.Day.ToString();
-                        txtMes.Text = this.dteCalendar.SelectedDate.Month.ToString();
-                        txtAnio.Text = this.dteCalendar.SelectedDate.Year.ToString();
+                        //this.dteCalendar.TodaysDate = tiempo;
+                        //this.dteCalendar.SelectedDate = tiempo;
+                        txtCalendar2.Text = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString(); 
+                        //txtDia.Text = this.dteCalendar.SelectedDate.Day.ToString();
+                        //txtMes.Text = this.dteCalendar.SelectedDate.Month.ToString();
+                        //txtAnio.Text = this.dteCalendar.SelectedDate.Year.ToString();
                     }
                     else
                     {
@@ -89,15 +90,17 @@ namespace UTTT.Ejemplo.Persona
                         this.txtAMaterno.Text = this.baseEntity.strAMaterno;
                         this.txtClaveUnica.Text = this.baseEntity.strClaveUnica;
                         this.setItem(ref this.ddlSexo, baseEntity.CatSexo.strValor);
-                        DateTime? fechaNacimiento = this.baseEntity.dtFechaDNaci;
+                        this.txtCalendar2.Text = this.baseEntity.dtFechaDNaci.ToString();
+                        //DateTime? fechaNacimiento = this.baseEntity.dtFechaDNaci;
+                        //this.txtNumeroHermanos.Text = this.baseEntity.intNumHermano.ToString();
+                        //if (fechaNacimiento != null) {
+                        //    this.dteCalendar.TodaysDate = (DateTime)fechaNacimiento;
+                        //    this.dteCalendar.SelectedDate = (DateTime)fechaNacimiento;
+                        //}
+                        //txtDia.Text = this.dteCalendar.SelectedDate.Day.ToString();
+                        //txtMes.Text = this.dteCalendar.SelectedDate.Month.ToString();
+                        //txtAnio.Text = this.dteCalendar.SelectedDate.Year.ToString();
                         this.txtNumeroHermanos.Text = this.baseEntity.intNumHermano.ToString();
-                        if (fechaNacimiento != null) {
-                            this.dteCalendar.TodaysDate = (DateTime)fechaNacimiento;
-                            this.dteCalendar.SelectedDate = (DateTime)fechaNacimiento;
-                        }
-                        txtDia.Text = this.dteCalendar.SelectedDate.Day.ToString();
-                        txtMes.Text = this.dteCalendar.SelectedDate.Month.ToString();
-                        txtAnio.Text = this.dteCalendar.SelectedDate.Year.ToString();
                         this.txtCorreoElectronico.Text = this.baseEntity.strCorreoElectronico;
                         this.txtCodigoPostal.Text = this.baseEntity.strCodigoP;
                         this.txtRFC.Text = this.baseEntity.strRFC;
@@ -134,7 +137,8 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
                     //El calendar
-                    DateTime dateTime = Convert.ToDateTime(txtMes.Text + "/" + txtDia.Text + "/" + txtAnio.Text, CultureInfo.InvariantCulture);
+                    //DateTime dateTime = Convert.ToDateTime(txtMes.Text + "/" + txtDia.Text + "/" + txtAnio.Text, CultureInfo.InvariantCulture);
+                    DateTime dateTime = DateTime.Parse(txtCalendar2.Text);
                     persona.dtFechaDNaci = dateTime;
 
 
@@ -150,7 +154,7 @@ namespace UTTT.Ejemplo.Persona
                     persona.intNumHermano = !this.txtNumeroHermanos.Text.Equals(string.Empty) ?
                         int.Parse(this.txtNumeroHermanos.Text) : 0;
                     string mensaje = string.Empty;
-                    if (!this.validacion(persona, ref mensaje, txtDia.Text,txtMes.Text,txtAnio.Text)) {
+                    if (!this.validacion(persona, ref mensaje)) {
                         this.lblMensaje.Text = mensaje;
                         this.lblMensaje.Visible = true;
                         return;
@@ -187,7 +191,8 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
                     //El calendar
-                    DateTime dateTime = Convert.ToDateTime(txtMes.Text + "/" + txtDia.Text + "/" + txtAnio.Text, CultureInfo.InvariantCulture);
+                    //DateTime dtStart = DateTime.Parse(txtCalendar2.Text);
+                    DateTime dateTime = DateTime.Parse(txtCalendar2.Text);
                     persona.dtFechaDNaci = dateTime;
                     //agregar hermanos
                     persona.intNumHermano =  int.Parse(this.txtNumeroHermanos.Text);
@@ -198,7 +203,7 @@ namespace UTTT.Ejemplo.Persona
                     //RFC
                     persona.strRFC = this.txtRFC.Text.Trim();
                     string mensaje = string.Empty;
-                    if (!this.validacion(persona, ref mensaje, txtDia.Text, txtMes.Text, txtAnio.Text))
+                    if (!this.validacion(persona, ref mensaje))
                     {
                         this.lblMensaje.Text = mensaje;
                         this.lblMensaje.Visible = true;
@@ -273,7 +278,7 @@ namespace UTTT.Ejemplo.Persona
         }
 
         #endregion
-        public bool validacion(UTTT.Ejemplo.Linq.Data.Entity.Persona _persona, ref String _mensaje, string dia, string mes, string anio) {
+        public bool validacion(UTTT.Ejemplo.Linq.Data.Entity.Persona _persona, ref String _mensaje) {
             if (_persona.idCatSexo.Equals(-1)) {
                 _mensaje = "seleccione el sexo";
                 return false;
@@ -325,17 +330,25 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = "Solo se permienten Letras en Apellido Materno";
                 return false;
             }
-            int diaNaci = int.Parse(txtDia.Text);
-            int mesNaci = int.Parse(txtMes.Text);
-            int anioNaci = int.Parse(txtAnio.Text);
-            
-            DateTime fechaNaci = new DateTime(anioNaci, mesNaci, diaNaci);
-            double edad = (DateTime.Now.Subtract(fechaNaci).Days/365.3);
-            if (edad < 18) {
+            //int diaNaci = int.Parse(txtDia.Text);
+            //int mesNaci = int.Parse(txtMes.Text);
+            //int anioNaci = int.Parse(txtAnio.Text);
+            DateTime dtStart = DateTime.Parse(txtCalendar2.Text);
+            TimeSpan sp = DateTime.Now - dtStart;
+            double edadC = 18 * 365.3;
+            if (sp.Days <edadC )
+            {
                 _mensaje = "No se admiten menores de edad";
                 return false;
             }
 
+        //  DateTime fechaNaci = new DateTime(anioNaci, mesNaci, diaNaci);
+        //    double edad = (DateTime.Now.Subtract(fechaNaci).Days/365.3);
+        //    if (edad < 18) {
+        //        _mensaje = "No se admiten menores de edad";
+        //        return false;
+        //    }
+            
             if (_persona.intNumHermano > 20 ) {
                 _mensaje = "Numero de hermanos no valido";
                 return false;
@@ -430,21 +443,21 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = mensaheFuncion;
                 return false;
             }
-            if (valida.htmlInyectionValida(this.txtDia.Text.Trim(), ref mensaheFuncion, "Dia", ref this.txtDia))
+            if (valida.htmlInyectionValida(this.txtCalendar2.Text.Trim(), ref mensaheFuncion, "Dia", ref this.txtCalendar2))
             {
                 _mensaje = mensaheFuncion;
                 return false;
             }
-            if (valida.htmlInyectionValida(this.txtMes.Text.Trim(), ref mensaheFuncion, "Mes", ref this.txtMes))
-            {
-                _mensaje = mensaheFuncion;
-                return false;
-            }
-            if (valida.htmlInyectionValida(this.txtAnio.Text.Trim(), ref mensaheFuncion, "Año", ref this.txtAnio))
-            {
-                _mensaje = mensaheFuncion;
-                return false;
-            }
+            //if (valida.htmlInyectionValida(this.txtMes.Text.Trim(), ref mensaheFuncion, "Mes", ref this.txtMes))
+            //{
+            //    _mensaje = mensaheFuncion;
+            //    return false;
+            //}
+            //if (valida.htmlInyectionValida(this.txtAnio.Text.Trim(), ref mensaheFuncion, "Año", ref this.txtAnio))
+            //{
+            //    _mensaje = mensaheFuncion;
+            //    return false;
+            //}
             if (valida.htmlInyectionValida(this.txtNumeroHermanos.Text.Trim(), ref mensaheFuncion, "Numero Hermanos", ref this.txtNumeroHermanos))
             {
                 _mensaje = mensaheFuncion;
@@ -496,22 +509,22 @@ namespace UTTT.Ejemplo.Persona
                 _mensaje = mensaheFuncion;
                 return false;
             }
-            if (valida.SQLInyectionValida(this.txtDia.Text.Trim(), ref mensaheFuncion, "Dia", ref this.txtDia))
-            {
-                _mensaje = mensaheFuncion;
-                return false;
-            }
-            if (valida.SQLInyectionValida(this.txtMes.Text.Trim(), ref mensaheFuncion, "Mes", ref this.txtMes))
-            {
-                _mensaje = mensaheFuncion;
-                return false;
-            }
-            if (valida.SQLInyectionValida(this.txtAnio.Text.Trim(), ref mensaheFuncion, "Año", ref this.txtAnio))
-            {
-                _mensaje = mensaheFuncion;
-                return false;
-            }
-            if (valida.SQLInyectionValida(this.txtNumeroHermanos.Text.Trim(), ref mensaheFuncion, "Hermanos", ref this.txtNumeroHermanos))
+			if (valida.SQLInyectionValida(this.txtCalendar2.Text.Trim(), ref mensaheFuncion, "Dia", ref this.txtCalendar2))
+			{
+				_mensaje = mensaheFuncion;
+				return false;
+			}
+			//if (valida.SQLInyectionValida(this.txtMes.Text.Trim(), ref mensaheFuncion, "Mes", ref this.txtMes))
+			//{
+			//    _mensaje = mensaheFuncion;
+			//    return false;
+			//}
+			//if (valida.SQLInyectionValida(this.txtAnio.Text.Trim(), ref mensaheFuncion, "Año", ref this.txtAnio))
+			//{
+			//    _mensaje = mensaheFuncion;
+			//    return false;
+			//}
+			if (valida.SQLInyectionValida(this.txtNumeroHermanos.Text.Trim(), ref mensaheFuncion, "Hermanos", ref this.txtNumeroHermanos))
             {
                 _mensaje = mensaheFuncion;
                 return false;
@@ -573,13 +586,13 @@ namespace UTTT.Ejemplo.Persona
 
 		#endregion
 
-		protected void dteCalendar_SelectionChanged(object sender, EventArgs e)
-		{
-            txtDia.Text = dteCalendar.SelectedDate.Day.ToString();
-            txtMes.Text = dteCalendar.SelectedDate.AddDays(7).Month.ToString();
-            txtAnio.Text = dteCalendar.SelectedDate.AddDays(7).Year.ToString();
+		//protected void dteCalendar_SelectionChanged(object sender, EventArgs e)
+		//{
+  //          txtDia.Text = dteCalendar.SelectedDate.Day.ToString();
+  //          txtMes.Text = dteCalendar.SelectedDate.AddDays(7).Month.ToString();
+  //          txtAnio.Text = dteCalendar.SelectedDate.AddDays(7).Year.ToString();
            
-		}
+		//}
 
 		protected void txtClaveUnica_TextChanged(object sender, EventArgs e)
 		{

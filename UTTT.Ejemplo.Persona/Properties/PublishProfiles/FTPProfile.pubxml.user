@@ -35,10 +35,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/08/2021 10:41:42</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.dll">
-      <publishTime>02/11/2021 09:15:16</publishTime>
+      <publishTime>02/24/2021 16:29:07</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.pdb">
-      <publishTime>02/11/2021 09:15:16</publishTime>
+      <publishTime>02/24/2021 16:29:07</publishTime>
     </File>
     <File Include="controlformato.css">
       <publishTime>01/26/2021 00:26:58</publishTime>
@@ -57,6 +57,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Error.aspx">
       <publishTime>02/02/2021 07:50:51</publishTime>
+    </File>
+    <File Include="Images/Calendario.png">
+      <publishTime>02/02/2021 06:58:47</publishTime>
     </File>
     <File Include="Images/delrecord_16x16.png">
       <publishTime>01/26/2021 00:26:58</publishTime>
@@ -83,16 +86,22 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/26/2021 00:26:58</publishTime>
     </File>
     <File Include="PersonaManager.aspx">
-      <publishTime>02/11/2021 09:13:14</publishTime>
+      <publishTime>02/24/2021 16:25:03</publishTime>
     </File>
     <File Include="PersonaPrincipal.aspx">
-      <publishTime>02/11/2021 08:42:27</publishTime>
+      <publishTime>02/24/2021 15:24:00</publishTime>
     </File>
     <File Include="resources/estilos.css">
-      <publishTime>02/11/2021 09:12:38</publishTime>
+      <publishTime>02/16/2021 22:28:57</publishTime>
+    </File>
+    <File Include="resources/PersonaM.css">
+      <publishTime>02/17/2021 09:18:45</publishTime>
     </File>
     <File Include="resources/PersonaManager.css">
       <publishTime>02/11/2021 09:12:36</publishTime>
+    </File>
+    <File Include="resources/PersonaP.css">
+      <publishTime>02/17/2021 09:31:18</publishTime>
     </File>
     <File Include="Scripts/jquery-1.4.1-vsdoc.js">
       <publishTime>01/26/2021 00:26:58</publishTime>
@@ -105,6 +114,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Scripts/PersonaAgregar.js">
       <publishTime>01/26/2021 00:26:58</publishTime>
+    </File>
+    <File Include="Scripts/PersonaManager.js">
+      <publishTime>02/24/2021 15:32:42</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>02/02/2021 14:04:48</publishTime>
