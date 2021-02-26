@@ -78,6 +78,24 @@ namespace UTTT.Ejemplo.Persona
 		protected global::System.Web.UI.WebControls.DropDownList ddlSexo;
 
 		/// <summary>
+		/// Control Label4.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label4;
+
+		/// <summary>
+		/// Control ddlEstadoCivil.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlEstadoCivil;
+
+		/// <summary>
 		/// Control Label3.
 		/// </summary>
 		/// <remarks>

@@ -84,6 +84,7 @@ namespace UTTT.Ejemplo.Persona
                 persona.StrAMaterno = this.txtAMaterno.Text.Trim();
                
                 persona.IdCatSexo = int.Parse(this.dblSexo.SelectedValue);
+              
                 object objeto = persona;
                 bool resultado = ctrlPersona.insertar(objeto);
                 if (resultado)

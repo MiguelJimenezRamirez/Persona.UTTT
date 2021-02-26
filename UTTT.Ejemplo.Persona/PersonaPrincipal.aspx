@@ -11,6 +11,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<style type="text/css">
+		.auto-style1 {
+			flex: 0 0 8.333333%;
+			width: 100%;
+			position: relative;
+			-ms-flex: 0 0 8.333333%;
+			max-width: 8.333333%;
+			margin-top: 0px;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	</style>
 </head>
 <body>
     <form id="form1" runat="server" class="form-horizontal colorFondo" >
@@ -38,14 +50,22 @@
         </div>
         <div class="row">
             <div class="col-xl-1 col-sm-1">
-                <asp:Label ID="Label2" runat="server" Text="Label">Sexo:</asp:Label>
+                <asp:Label ID="Label2" CssClass="control-label col-sm-2" runat="server" Text="Label">Sexo:</asp:Label>
             </div>
             <div class="col-xl-1 col-sm-1">
-                <asp:DropDownList ID="ddlSexo" runat="server" Height="22px" Width="177px"></asp:DropDownList>
+                <asp:DropDownList ID="ddlSexo" CssClass="btn btn-secondary dropdown-toggle" runat="server" Height="39px" Width="177px"></asp:DropDownList>
             </div>
         </div>
         <div class="row">
-            <div class="col-1">
+            <div class="col-xl-1 col-sm-1">
+                <asp:Label ID="Label4" CssClass="control-label col-sm-2" runat="server" Text="Label">Estado Civil</asp:Label>
+            </div>
+            <div class="col-xl-1 col-sm-1">
+                <asp:DropDownList ID="ddlEstadoCivil" CssClass="btn btn-secondary dropdown-toggle" runat="server" Height="39px" Width="177px"></asp:DropDownList>
+            </div>
+        </div>
+        <div class="row">
+            <div class="auto-style1">
                 <asp:Label ID="Label3" runat="server" CssClass="text-info" Text="Label">Detalle</asp:Label>
             </div>
         </div>

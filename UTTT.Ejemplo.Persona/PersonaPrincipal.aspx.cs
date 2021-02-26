@@ -43,6 +43,16 @@ namespace UTTT.Ejemplo.Persona
                     this.ddlSexo.DataValueField = "id";
                     this.ddlSexo.DataSource = lista;
                     this.ddlSexo.DataBind();
+                    
+                    List<CatEstadoCivil> listaEstado = dcTemp.GetTable<CatEstadoCivil>().ToList();
+                    CatEstadoCivil catTempEstado = new CatEstadoCivil();
+                    catTempEstado.id = -1;
+                    catTempEstado.strValor = "Todos";
+                    listaEstado.Insert(0, catTempEstado);
+                    this.ddlEstadoCivil.DataTextField = "strValor";
+                    this.ddlEstadoCivil.DataValueField = "id";
+                    this.ddlEstadoCivil.DataSource = listaEstado;
+                    this.ddlEstadoCivil.DataBind();
                 }
             }
             catch (Exception _e)
@@ -87,6 +97,7 @@ namespace UTTT.Ejemplo.Persona
                 DataContext dcConsulta = new DcGeneralDataContext();
                 bool nombreBool = false;
                 bool sexoBool = false;
+                bool estadoBool = false;
                 if (!this.txtNombre.Text.Equals(String.Empty))
                 {
                     nombreBool = true;
@@ -95,11 +106,16 @@ namespace UTTT.Ejemplo.Persona
                 {
                     sexoBool = true;
                 }
+                if (this.ddlEstadoCivil.Text != "-1")
+                {
+                    estadoBool = true;
+                }
 
                 Expression<Func<UTTT.Ejemplo.Linq.Data.Entity.Persona, bool>> 
                     predicate =
                     (c =>
-                    ((sexoBool) ? c.idCatSexo == int.Parse(this.ddlSexo.Text) : true) &&             
+                    ((sexoBool) ? c.idCatSexo == int.Parse(this.ddlSexo.Text) : true) &&     
+                    ((estadoBool) ? c.idCatEstadoCivil == int.Parse(this.ddlEstadoCivil.Text) : true) &&
                     ((nombreBool) ? (((nombreBool) ? c.strNombre.Contains(this.txtNombre.Text.Trim()) : false)) : true)
                     );
 

@@ -70,16 +70,27 @@ namespace UTTT.Ejemplo.Persona
 
                     this.ddlSexo.SelectedIndexChanged += new EventHandler(ddlSexo_SelectedIndexChanged);
                     this.ddlSexo.AutoPostBack = true;
+
+                    List<CatEstadoCivil> listaEstadoCivil = dcGlobal.GetTable<CatEstadoCivil>().ToList();
+                    this.ddlEstadoCivil.DataTextField = "strValor";
+                    this.ddlEstadoCivil.DataValueField = "id";
                     if (this.idPersona == 0)
                     {
                         lblAccion.Text = "Agregar";
                         DateTime tiempo = new DateTime(DateTime.Now.Year, DateTime.Now.Month,DateTime.Now.Day);
                         //this.dteCalendar.TodaysDate = tiempo;
                         //this.dteCalendar.SelectedDate = tiempo;
-                        txtCalendar2.Text = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString(); 
+                        txtCalendar2.Text = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).ToString();
                         //txtDia.Text = this.dteCalendar.SelectedDate.Day.ToString();
                         //txtMes.Text = this.dteCalendar.SelectedDate.Month.ToString();
                         //txtAnio.Text = this.dteCalendar.SelectedDate.Year.ToString();
+
+                        CatEstadoCivil catEstadoCivilTem = new CatEstadoCivil();
+                        catEstadoCivilTem.id = -1;
+                        catEstadoCivilTem.strValor = "Seleccionar ";
+                        listaEstadoCivil.Insert(0, catEstadoCivilTem);
+                        this.ddlEstadoCivil.DataSource = listaEstadoCivil;
+                        this.ddlEstadoCivil.DataBind();
                     }
                     else
                     {
@@ -104,10 +115,24 @@ namespace UTTT.Ejemplo.Persona
                         this.txtCorreoElectronico.Text = this.baseEntity.strCorreoElectronico;
                         this.txtCodigoPostal.Text = this.baseEntity.strCodigoP;
                         this.txtRFC.Text = this.baseEntity.strRFC;
-                        
-                        //Funcionalidad para numeros de hermanos
-                       
-                    }                
+                        //cat estado civil
+                        if (baseEntity.CatEstadoCivil == null) 
+                        {
+                            CatEstadoCivil catEstadoCivilTemp = new CatEstadoCivil();
+                            catEstadoCivilTemp.id = -1;
+                            catEstadoCivilTemp.strValor = "Seleccionar";
+                            listaEstadoCivil.Insert(0,catEstadoCivilTemp);
+                        }
+                        this.ddlEstadoCivil.DataSource = listaEstadoCivil;
+                        this.ddlEstadoCivil.DataBind();
+                        if (baseEntity.CatEstadoCivil != null) 
+                        {
+                            this.setItem(ref this.ddlEstadoCivil, baseEntity.CatEstadoCivil.strValor);
+                        }  
+                    }
+                    this.ddlEstadoCivil.SelectedIndexChanged += new EventHandler(ddlEstadoCivil_SelectedIndexChanged);
+                    this.ddlEstadoCivil.AutoPostBack = true;
+
                 }
 
             }
@@ -132,10 +157,12 @@ namespace UTTT.Ejemplo.Persona
                 {
                     //agrega
                     persona.strClaveUnica = this.txtClaveUnica.Text.Trim();
+                    
                     persona.strNombre = this.txtNombre.Text.Trim();
                     persona.strAMaterno = this.txtAMaterno.Text.Trim();
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
+                    persona.idCatEstadoCivil = int.Parse(this.ddlEstadoCivil.Text);
                     //El calendar
                     //DateTime dateTime = Convert.ToDateTime(txtMes.Text + "/" + txtDia.Text + "/" + txtAnio.Text, CultureInfo.InvariantCulture);
                     DateTime dateTime = DateTime.Parse(txtCalendar2.Text);
@@ -190,6 +217,7 @@ namespace UTTT.Ejemplo.Persona
                     persona.strAMaterno = this.txtAMaterno.Text.Trim();
                     persona.strAPaterno = this.txtAPaterno.Text.Trim();
                     persona.idCatSexo = int.Parse(this.ddlSexo.Text);
+                    persona.idCatEstadoCivil = int.Parse(this.ddlEstadoCivil.Text);
                     //El calendar
                     //DateTime dtStart = DateTime.Parse(txtCalendar2.Text);
                     DateTime dateTime = DateTime.Parse(txtCalendar2.Text);
@@ -267,6 +295,28 @@ namespace UTTT.Ejemplo.Persona
                 this.ddlSexo.DataValueField = "id";
                 this.ddlSexo.DataSource = lista;
                 this.ddlSexo.DataBind();
+            }
+            catch (Exception _e)
+            {
+
+                this.showMessage("Ha ocurrido un error inesperado");
+                error(_e.ToString());
+                Response.Redirect("~/Error.aspx", false);
+            }
+        }
+        protected void ddlEstadoCivil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int idEstado = int.Parse(this.ddlEstadoCivil.Text);
+                Expression<Func<CatEstadoCivil, bool>> predicateEstado = c => c.id == idEstado;
+                predicateEstado.Compile();
+                List<CatEstadoCivil> lista = dcGlobal.GetTable<CatEstadoCivil>().Where(predicateEstado).ToList();
+                CatEstadoCivil catTemp = new CatEstadoCivil();
+                this.ddlEstadoCivil.DataTextField = "strValor";
+                this.ddlEstadoCivil.DataValueField = "id";
+                this.ddlEstadoCivil.DataSource = lista;
+                this.ddlEstadoCivil.DataBind();
             }
             catch (Exception _e)
             {

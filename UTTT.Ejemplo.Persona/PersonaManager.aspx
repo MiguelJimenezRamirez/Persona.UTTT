@@ -28,12 +28,27 @@
 			padding-left: 15px;
 			padding-right: 15px;
 		}
+		.auto-style2 {
+			display: block;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			color: #495057;
+			background-clip: padding-box;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			border-radius: .25rem;
+			transition: none;
+			border: 1px solid #ced4da;
+			background-color: #fff;
+		}
 	</style>
 </head>
 <body>
     <form runat="server" class="colorFondo">
+    <div class="container well ">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <div class=" container well ">
         <div class="row">
             <div class="col-4">
             </div>
@@ -69,7 +84,7 @@
             <asp:UpdatePanel ID="upSetSession" runat="server">
                 <ContentTemplate>
                     <div class="col-xl-1 col-sm-2">
-                        <asp:DropDownList ID="ddlSexo" runat="server"  Height="25px" Width="253px" onselectedindexchanged="ddlSexo_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="253px" onselectedindexchanged="ddlSexo_SelectedIndexChanged"></asp:DropDownList>
                     </div>
                 </ContentTemplate> 
                 <Triggers>
@@ -82,9 +97,37 @@
         <div class="row">
             <div class="col-xl-3 col-sm-2">
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"  ControlToValidate="ddlSexo" ErrorMessage="Sexo Requerido" InitialValue="-1"></asp:RequiredFieldValidator>
+            	 
+				 
             </div>
         </div>
         <!--DropListEN-->
+        <div class="row">
+            <div class="col-xl-2 col-sm-2">
+                <asp:Label ID="Label8" runat="server"  CssClass="control-label col-sm-2" Text="Label" >Estado Civil:</asp:Label>
+            </div>
+            
+        </div>
+        <div class="row">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+               <ContentTemplate>
+                    <div class="col-xl-1 col-sm-2">
+                        <asp:DropDownList ID="ddlEstadoCivil" runat="server" Height="40px" Width="249px" CssClass="btn btn-secondary dropdown-toggle">
+				        </asp:DropDownList>
+                     </div>
+                </ContentTemplate> 
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="ddlSexo" EventName="SelectedIndexChanged" />
+                </Triggers>
+            </asp:UpdatePanel>
+
+        </div>
+        <div class="row">
+            <div class="col-xl-1 col-sm-2">
+            	<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Estado Civil requerido" ControlToValidate="ddlEstadoCivil"></asp:RequiredFieldValidator>
+            </div>
+        </div>
+
         <!--Clave UnicaOP-->
         <div class="row">
             <div class="col-xl-2 col-sm-2">
@@ -155,20 +198,22 @@
             </div>
         </div>
         <!--AMaternoED-->
-
+        <!--TextCaledarOP-->
     <div class="row">
         <div class="col-xl-2 col-sm-2">
                 <asp:Label ID="Label7" CssClass="control-label col-sm-2"  runat="server"  >Fecha de Nacimiento</asp:Label>
-         </div>
-        <div class="col-xl-3 col-sm-3">
-            
-			<asp:ImageButton ID="imgButton" runat="server" Height="25px" ImageUrl="~/Images/Calendario.png" Width="25px" />
-            <asp:TextBox ID="txtCalendar2" CssClass="form-control" runat="server"></asp:TextBox>
-			<ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" PopupButtonID="imgButton" PopupPosition="TopRight" TargetControlID="txtCalendar2" /> 
         </div>
+        <div class="col-xl-1 col-sm-1">  
+			<asp:ImageButton ID="imgButton" runat="server" Height="25px" ImageUrl="~/Images/Calendario.png" Width="25px" />
+        
+            <asp:TextBox ID="txtCalendar2" CssClass="form-control" runat="server" Width="248px"></asp:TextBox>
+		</div>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" PopupButtonID="imgButton" PopupPosition="TopRight" TargetControlID="txtCalendar2" /> 
+        
     </div>
-    <!--TextCaledarOP-->
-    	<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtCalendar2" ErrorMessage="Fecha Requerida"></asp:RequiredFieldValidator>
+    <div class="row">
+    	<asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="form-control" runat="server" ControlToValidate="txtCalendar2" ErrorMessage="Fecha Requerida"></asp:RequiredFieldValidator>
+    </div>
     <br />
     
     <!--TextCaledarED-->
@@ -254,7 +299,7 @@
             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" onclick="btnCancelar_Click" CssClass="btn btn-danger" ViewStateMode="Disabled" />
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
         function calendar(e) {
             console.log(e.value.day);
         }

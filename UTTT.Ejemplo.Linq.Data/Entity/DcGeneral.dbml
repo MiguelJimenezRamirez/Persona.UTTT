@@ -33,8 +33,18 @@
       <Column Name="strRFC" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="strCodigoPostal" Type="System.Data.Linq.Binary" DbType="VarBinary(6)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="strCodigoP" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="idCatEstadoCivil" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Persona_Direccion" Member="Direccion" ThisKey="id" OtherKey="idPersona" Type="Direccion" />
       <Association Name="CatSexo_Persona" Member="CatSexo" ThisKey="idCatSexo" OtherKey="id" Type="CatSexo" IsForeignKey="true" />
+      <Association Name="CatEstadoCivil_Persona" Member="CatEstadoCivil" ThisKey="idCatEstadoCivil" OtherKey="id" Type="CatEstadoCivil" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="mickeyjr007_SQLLogin_1.CatEstadoCivil" Member="CatEstadoCivil">
+    <Type Name="CatEstadoCivil">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strValor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="CatEstadoCivil_Persona" Member="Persona" ThisKey="id" OtherKey="idCatEstadoCivil" Type="Persona" />
     </Type>
   </Table>
 </Database>
