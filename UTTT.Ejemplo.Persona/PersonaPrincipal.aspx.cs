@@ -214,6 +214,84 @@ namespace UTTT.Ejemplo.Persona
             }
         }
 
-        #endregion
-    }
+		#endregion
+
+		protected void txtNombre_TextChanged(object sender, EventArgs e)
+		{
+            ScriptManager.RegisterClientScriptBlock(UpdatePanel1, this.GetType(),"","", true);
+  
+        }
+
+		protected void ddlSexo_SelectedIndexChanged(object sender, LinqDataSourceSelectEventArgs e)
+		{
+            try
+            {
+                DataContext dcConsulta = new DcGeneralDataContext();
+                //bool nombreBool = false;
+                bool sexoBool = false;
+                bool estadoBool = false;
+               
+                if (this.ddlSexo.Text != "-1")
+                {
+                    sexoBool = true;
+                }
+                if (this.ddlEstadoCivil.Text != "-1")
+                {
+                    estadoBool = true;
+                }
+
+                Expression<Func<UTTT.Ejemplo.Linq.Data.Entity.Persona, bool>>
+                    predicate =
+                    (c =>
+                    ((sexoBool) ? c.idCatSexo == int.Parse(this.ddlSexo.Text) : true) &&
+                    ((estadoBool) ? c.idCatEstadoCivil == int.Parse(this.ddlEstadoCivil.Text) : true));
+
+                predicate.Compile();
+
+                List<UTTT.Ejemplo.Linq.Data.Entity.Persona> listaPersona =
+                    dcConsulta.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().Where(predicate).ToList();
+                e.Result = listaPersona;
+            }
+            catch (Exception _e)
+            {
+                throw _e;
+            }
+        }
+
+		protected void ddlEstadoCivil_SelectedIndexChanged(object sender, LinqDataSourceSelectEventArgs e)
+		{
+            try
+            {
+                DataContext dcConsulta = new DcGeneralDataContext();
+                //bool nombreBool = false;
+                bool sexoBool = false;
+                bool estadoBool = false;
+
+                if (this.ddlSexo.Text != "-1")
+                {
+                    sexoBool = true;
+                }
+                if (this.ddlEstadoCivil.Text != "-1")
+                {
+                    estadoBool = true;
+                }
+
+                Expression<Func<UTTT.Ejemplo.Linq.Data.Entity.Persona, bool>>
+                    predicate =
+                    (c =>
+                    ((sexoBool) ? c.idCatSexo == int.Parse(this.ddlSexo.Text) : true) &&
+                    ((estadoBool) ? c.idCatEstadoCivil == int.Parse(this.ddlEstadoCivil.Text) : true));
+
+                predicate.Compile();
+
+                List<UTTT.Ejemplo.Linq.Data.Entity.Persona> listaPersona =
+                    dcConsulta.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().Where(predicate).ToList();
+                e.Result = listaPersona;
+            }
+            catch (Exception _e)
+            {
+                throw _e;
+            }
+        }
+	}
 }

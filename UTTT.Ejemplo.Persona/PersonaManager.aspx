@@ -28,20 +28,9 @@
 			padding-left: 15px;
 			padding-right: 15px;
 		}
-		.auto-style2 {
-			display: block;
-			font-size: 1rem;
-			font-weight: 400;
-			line-height: 1.5;
-			color: #495057;
-			background-clip: padding-box;
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			border-radius: .25rem;
-			transition: none;
-			border: 1px solid #ced4da;
-			background-color: #fff;
+		.auto-style3 {
+			left: 0px;
+			top: 0px;
 		}
 	</style>
 </head>
@@ -84,7 +73,7 @@
             <asp:UpdatePanel ID="upSetSession" runat="server">
                 <ContentTemplate>
                     <div class="col-xl-1 col-sm-2">
-                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="253px" onselectedindexchanged="ddlSexo_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="253px"></asp:DropDownList>
                     </div>
                 </ContentTemplate> 
                 <Triggers>
@@ -117,14 +106,14 @@
                      </div>
                 </ContentTemplate> 
                 <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="ddlSexo" EventName="SelectedIndexChanged" />
+                    <asp:AsyncPostBackTrigger ControlID="ddlEstadoCivil" EventName="SelectedIndexChanged" />
                 </Triggers>
             </asp:UpdatePanel>
 
         </div>
         <div class="row">
-            <div class="col-xl-1 col-sm-2">
-            	<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Estado Civil requerido" ControlToValidate="ddlEstadoCivil"></asp:RequiredFieldValidator>
+            <div class="col-xl-2 col-sm-2">
+            	<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Estado Civil requerido" ControlToValidate="ddlEstadoCivil" InitialValue="-1"></asp:RequiredFieldValidator>
             </div>
         </div>
 
@@ -206,14 +195,15 @@
         <div class="col-xl-1 col-sm-1">  
 			<asp:ImageButton ID="imgButton" runat="server" Height="25px" ImageUrl="~/Images/Calendario.png" Width="25px" />
         
-            <asp:TextBox ID="txtCalendar2" CssClass="form-control" runat="server" Width="248px"></asp:TextBox>
+            <asp:TextBox ID="txtCalendar2" format="dd/MM/yyyy" CssClass="form-control" runat="server" Width="248px"></asp:TextBox>
 		</div>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" PopupButtonID="imgButton" PopupPosition="TopRight" TargetControlID="txtCalendar2" /> 
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" PopupButtonID="imgButton" PopupPosition="TopRight" TargetControlID="txtCalendar2" BehaviorID="clCalendar" /> 
         
     </div>
     <div class="row">
     	<asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="form-control" runat="server" ControlToValidate="txtCalendar2" ErrorMessage="Fecha Requerida"></asp:RequiredFieldValidator>
     </div>
+    	<asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtCalendar2" ErrorMessage="Formato de fecha no valido" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
     <br />
     
     <!--TextCaledarED-->
@@ -263,7 +253,7 @@
         <div class="col-xl-2 col-sm-2">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtRFC" ErrorMessage="RFC Requerido"></asp:RequiredFieldValidator>
         </div>
-        <div class="col-xl-2 col-sm-2">
+        <div class="auto-style3">
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtRFC" ErrorMessage="Formato no valido " ValidationExpression="^[a-zA-Z]{3,4}(\d{6})((\D|\d){2,3})?$"></asp:RegularExpressionValidator>
         </div>
 	</div>

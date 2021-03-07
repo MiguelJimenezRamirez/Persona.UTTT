@@ -294,6 +294,15 @@ namespace UTTT.Ejemplo.Persona
 		protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
 
 		/// <summary>
+		/// Control RegularExpressionValidator9.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator9;
+
+		/// <summary>
 		/// Control Label10.
 		/// </summary>
 		/// <remarks>
