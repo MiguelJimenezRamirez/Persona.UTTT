@@ -169,6 +169,11 @@
             </asp:UpdatePanel>
            <!--TablaED-->
             </div>
+             <div class="row">
+            <div class="auto-style1">
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-danger" OnClick="Button1_Click" Text="Salir" />
+            </div>
+        </div>
         </div>
       
     <asp:LinqDataSource ID="DataSourcePersona" runat="server" 
@@ -177,7 +182,8 @@
         Select="new (strNombre, strAPaterno, strAMaterno, CatSexo, strClaveUnica,id)" 
         TableName="Persona" EntityTypeName="">
     </asp:LinqDataSource>
-    	<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Salir" />
+       
+    	
     </form>
 </body>
 </html>

@@ -40,23 +40,27 @@ namespace UTTT.Ejemplo.Persona.views.Login
 			}
 			//busca al usuario del Email
 			var persona = dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().Where(c => c.strCorreoElectronico == txtEmail.Text);
-			if (persona.Count() < 1)
-			{ lblError.Text = "El correo no corresponde a ningun usuario"; }
-			else
+			if (txtEmail.Text != "")
 			{
-				var persona2 = dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().FirstOrDefault(c => c.strCorreoElectronico == txtEmail.Text);
-				if (persona2.strCorreoElectronico == txtEmail.Text)
-				{
-					var idPersona = persona2.id;
-					//lblError.Text = "Lo encontro y el id es: " + idPersona;
-					EnviarEmail(txtEmail.Text, idPersona);
-					Response.Redirect("/views/Login/EnvioExitoso.aspx");
-				}
+				if (persona.Count() < 1)
+				{ lblError.Text = "El correo no corresponde a ningun usuario"; lblError.Visible = true; }
 				else
 				{
-					lblError.Visible = true;
+					var persona2 = dcGuardar.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().FirstOrDefault(c => c.strCorreoElectronico == txtEmail.Text);
+					if (persona2.strCorreoElectronico == txtEmail.Text)
+					{
+						var idPersona = persona2.id;
+						//lblError.Text = "Lo encontro y el id es: " + idPersona;
+						EnviarEmail(txtEmail.Text, idPersona);
+						Response.Redirect("/views/Login/EnvioExitoso.aspx");
+					}
+					else
+					{
+						lblError.Visible = true;
+					}
 				}
 			}
+			else { lblError.Text = "Ingrese su correo"; lblError.Visible = true; }
 		}
 
 		protected void Button2_Click(object sender, EventArgs e)
@@ -65,8 +69,8 @@ namespace UTTT.Ejemplo.Persona.views.Login
 		}
 		public void EnviarEmail(string email, int idPersonaa)
 		{
-			//aqui la url
-			string body = "<p>" + "Programa: Miguel Jimenez Ramirez. Solicitud de cambio de contraseña, http://localhost:36683/views/Login/NuevaContra.aspx/?id="+idPersonaa+"<p>";
+			//aqui la url																				
+			string body = "<p>" + "Programa: Miguel Jimenez Ramirez. Solicitud de cambio de contraseña, http://www.utttejemplopersona.somee.com/views/Login/NuevaContra.aspx/?id=" + idPersonaa+"<p>";
 			string emailOrigen = "18301044@uttt.edu.mx";
 			string emailDestino = email;
 			string constrase = "Maldito007.10";

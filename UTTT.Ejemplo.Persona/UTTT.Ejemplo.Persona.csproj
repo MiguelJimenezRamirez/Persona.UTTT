@@ -89,6 +89,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="controlformato.css" />
+    <Content Include="css\cssLogin.css" />
+    <Content Include="css\EnvioExitoso.css" />
+    <Content Include="css\NuevaContra.css" />
+    <Content Include="css\RecuperaContra.css" />
     <Content Include="Default.aspx" />
     <Content Include="direccion.aspx" />
     <Content Include="DireccionExtraManager.aspx" />
@@ -246,7 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="paginaMaster.Master" />

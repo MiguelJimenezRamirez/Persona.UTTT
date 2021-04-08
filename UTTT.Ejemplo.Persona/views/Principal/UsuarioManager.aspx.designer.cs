@@ -114,6 +114,33 @@ namespace UTTT.Ejemplo.Persona.views.Principal
 		protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
 		/// <summary>
+		/// Control CompareValidator1.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+
+		/// <summary>
+		/// Control Label4.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label Label4;
+
+		/// <summary>
+		/// Control txtContraCompa.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox txtContraCompa;
+
+		/// <summary>
 		/// Control llblEstadoUsu.
 		/// </summary>
 		/// <remarks>

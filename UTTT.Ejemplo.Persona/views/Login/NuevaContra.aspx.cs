@@ -29,29 +29,33 @@ namespace UTTT.Ejemplo.Persona.views.Login
 			//validaciones
 			var logi = dcGuardar.GetTable<dbo_Login>().FirstOrDefault(c => c.fkPersona == id);
 			string mensaje = string.Empty;
-			if (!this.validacionSQL(ref mensaje))
-			{
-				this.lblError.Text = mensaje;
-				this.lblError.Visible = true;
-				return;
-
-			}
-			if (!this.validacionHTML(ref mensaje))
-			{
-				this.lblError.Text = mensaje;
-				this.lblError.Visible = true;
-				return;
-
-			}
 			if (txtContra.Text != "")
 			{
 				Encriptar encriptar = new Encriptar();
 				//encriptar
 				var encriptacion = encriptar.Encriptartext(txtContra.Text);
 				logi.strContraseña = encriptacion;
+				
+				if (!this.validacionSQL(ref mensaje))
+				{
+					this.lblError.Text = mensaje;
+					this.lblError.Visible = true;
+					return;
+
+				}
+				if (!this.validacionHTML(ref mensaje))
+				{
+					this.lblError.Text = mensaje;
+					this.lblError.Visible = true;
+					return;
+
+				}
+
+				dcGuardar.SubmitChanges();
+				this.Response.Redirect("~/views/Login/Login.aspx", false);
 			}
-			dcGuardar.SubmitChanges();
-			this.Response.Redirect("~/views/Login/Login.aspx", false);
+			else { lblError.Visible = true; lblError.Text = "Rellene todos los campos"; }
+			
 		}
 		//validaciones
 		public bool validacionHTML(ref String _mensaje)

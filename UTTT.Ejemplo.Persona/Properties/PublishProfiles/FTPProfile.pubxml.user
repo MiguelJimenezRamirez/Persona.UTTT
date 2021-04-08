@@ -13,35 +13,53 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="bin/AjaxControlToolkit.dll">
       <publishTime>05/20/2020 14:04:00</publishTime>
     </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>10/23/2017 14:15:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>10/23/2017 14:15:20</publishTime>
+    </File>
     <File Include="bin/UTTT.Ejemplo.Linq.Data.dll">
-      <publishTime>03/05/2021 12:04:29</publishTime>
+      <publishTime>04/07/2021 20:29:41</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Linq.Data.dll.config">
       <publishTime>01/26/2021 00:26:58</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Linq.Data.pdb">
-      <publishTime>03/05/2021 12:04:29</publishTime>
+      <publishTime>04/07/2021 20:29:41</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.Control.dll">
-      <publishTime>03/05/2021 12:04:30</publishTime>
+      <publishTime>04/07/2021 20:29:42</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.Control.pdb">
-      <publishTime>03/05/2021 12:04:30</publishTime>
+      <publishTime>04/07/2021 20:29:42</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.Data.dll">
-      <publishTime>03/05/2021 12:04:28</publishTime>
+      <publishTime>04/07/2021 20:29:41</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.Data.pdb">
-      <publishTime>03/05/2021 12:04:28</publishTime>
+      <publishTime>04/07/2021 20:29:41</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.dll">
-      <publishTime>03/11/2021 20:17:40</publishTime>
+      <publishTime>04/08/2021 16:19:06</publishTime>
     </File>
     <File Include="bin/UTTT.Ejemplo.Persona.pdb">
-      <publishTime>03/11/2021 20:17:40</publishTime>
+      <publishTime>04/08/2021 16:19:06</publishTime>
     </File>
     <File Include="controlformato.css">
       <publishTime>01/26/2021 00:26:58</publishTime>
+    </File>
+    <File Include="css/cssLogin.css">
+      <publishTime>04/08/2021 10:47:29</publishTime>
+    </File>
+    <File Include="css/EnvioExitoso.css">
+      <publishTime>04/08/2021 11:17:05</publishTime>
+    </File>
+    <File Include="css/NuevaContra.css">
+      <publishTime>04/08/2021 11:44:27</publishTime>
+    </File>
+    <File Include="css/RecuperaContra.css">
+      <publishTime>04/08/2021 11:54:04</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>01/26/2021 00:26:58</publishTime>
@@ -58,6 +76,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Error.aspx">
       <publishTime>02/02/2021 07:50:51</publishTime>
     </File>
+    <File Include="Images/219986.png">
+      <publishTime>04/01/2021 17:49:46</publishTime>
+    </File>
     <File Include="Images/Calendario.png">
       <publishTime>02/02/2021 06:58:47</publishTime>
     </File>
@@ -66,6 +87,9 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     </File>
     <File Include="Images/editrecord_16x16.png">
       <publishTime>01/26/2021 00:26:58</publishTime>
+    </File>
+    <File Include="Images/People_Business-08.png">
+      <publishTime>04/01/2021 17:49:32</publishTime>
     </File>
     <File Include="Images/Pixir-1-1-300x181.png">
       <publishTime>01/26/2021 00:26:58</publishTime>
@@ -86,10 +110,10 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>01/26/2021 00:26:58</publishTime>
     </File>
     <File Include="PersonaManager.aspx">
-      <publishTime>03/11/2021 20:15:51</publishTime>
+      <publishTime>04/08/2021 11:27:49</publishTime>
     </File>
     <File Include="PersonaPrincipal.aspx">
-      <publishTime>03/09/2021 20:51:23</publishTime>
+      <publishTime>04/08/2021 14:42:13</publishTime>
     </File>
     <File Include="resources/estilos.css">
       <publishTime>02/16/2021 22:28:57</publishTime>
@@ -101,7 +125,7 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
       <publishTime>02/11/2021 09:12:36</publishTime>
     </File>
     <File Include="resources/PersonaP.css">
-      <publishTime>03/11/2021 10:16:35</publishTime>
+      <publishTime>04/08/2021 14:17:11</publishTime>
     </File>
     <File Include="Scripts/jquery-1.4.1-vsdoc.js">
       <publishTime>01/26/2021 00:26:58</publishTime>
@@ -118,8 +142,29 @@ edite el archivo MSBuild. Visite https://go.microsoft.com/fwlink/?LinkID=208121 
     <File Include="Scripts/PersonaManager.js">
       <publishTime>02/24/2021 15:32:42</publishTime>
     </File>
+    <File Include="views/Login/EnvioExitoso.aspx">
+      <publishTime>04/08/2021 11:40:41</publishTime>
+    </File>
+    <File Include="views/Login/Login.aspx">
+      <publishTime>04/08/2021 10:49:38</publishTime>
+    </File>
+    <File Include="views/Login/NuevaContra.aspx">
+      <publishTime>04/08/2021 12:29:42</publishTime>
+    </File>
+    <File Include="views/Login/RecuperarContra.aspx">
+      <publishTime>04/08/2021 12:19:12</publishTime>
+    </File>
+    <File Include="views/Principal/ModuloPrincipal.aspx">
+      <publishTime>04/08/2021 15:49:04</publishTime>
+    </File>
+    <File Include="views/Principal/UsuarioManager.aspx">
+      <publishTime>04/08/2021 16:01:39</publishTime>
+    </File>
+    <File Include="views/Principal/UsuarioPrincipal.aspx">
+      <publishTime>04/08/2021 14:52:22</publishTime>
+    </File>
     <File Include="Web.config">
-      <publishTime>03/09/2021 20:25:46</publishTime>
+      <publishTime>04/08/2021 15:52:49</publishTime>
     </File>
   </ItemGroup>
 </Project>
