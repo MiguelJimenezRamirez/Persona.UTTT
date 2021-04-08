@@ -92,6 +92,7 @@ namespace UTTT.Ejemplo.Persona.views.Principal
 						//ahora desencriptamos
 						var desEncrip = encriptar.DesEncriptar(this.baseEntity.strContraseña);
 						this.txtContraseña.Text = desEncrip;
+						this.txtContraCompa.Text = desEncrip;
 						//Fecha de ingreso, no editable
 						this.txtFecha.Text = baseEntity.dtFehca.ToString().Split(' ')[0];
 					}
