@@ -17,17 +17,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<style type="text/css">
-		.auto-style1 {
-			flex: 0 0 33.333333%;
-			width: 100%;
-			position: relative;
-			-ms-flex: 0 0 33.333333%;
-			max-width: 33.333333%;
-			left: 0px;
-			top: 1px;
-			padding-left: 15px;
-			padding-right: 15px;
-		}
 		.auto-style3 {
 			left: 0px;
 			top: 0px;
@@ -48,160 +37,137 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
-            </div>
-            <div class="col-4">
-                <asp:Label ID="Label3" runat="server" Text="Miguel Jimenez Ramirez"></asp:Label>
-            </div>
-            <div class="auto-style1">
-            </div>
+                <asp:Label ID="Label3" runat="server" CssClass="text-center" Text="Miguel Jimenez Ramirez"></asp:Label>
+            
         </div>
         <div class="row">
-            <div class="col-4">
-            </div>
-            <div class="col-sm-4">
-                <asp:Label ID="lblAccion" runat="server" Text="Accion" Font-Bold="True"></asp:Label>
-            </div>
-            <div class="col-4">
-            </div>
+                <asp:Label ID="lblAccion" runat="server" CssClass="text-center" Text="Accion" Font-Bold="True"></asp:Label>
+            
         </div>
+        <br />
         <!--DropListOP-->
         <div class="row">
-            <div class="col-xl-1 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label2" runat="server"  CssClass="control-label col-sm-2" Text="Label" >Sexo:</asp:Label>
             </div>
+            <div class="col-xl-3 col-sm-2">
             <asp:UpdatePanel ID="upSetSession" runat="server">
                 <ContentTemplate>
-                    <div class="col-xl-1 col-sm-2">
-                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="253px"></asp:DropDownList>
-                    </div>
+                        <asp:DropDownList ID="ddlSexo" runat="server" CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="249px"></asp:DropDownList>
+                    
                 </ContentTemplate> 
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="ddlSexo" EventName="SelectedIndexChanged" />
                 </Triggers>
             </asp:UpdatePanel>
-            
-            
+                </div>
         </div>
         <div class="row">
             <div class="col-xl-3 col-sm-2">
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"  ControlToValidate="ddlSexo" ErrorMessage="Sexo Requerido" InitialValue="-1"></asp:RequiredFieldValidator>
-            	 
-				 
             </div>
+			
         </div>
+        <br />
         <!--DropListEN-->
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label8" runat="server"  CssClass="control-label col-sm-2" Text="Label" >Estado Civil:</asp:Label>
             </div>
             
-        </div>
-        <div class="row">
+        <div class="col-xl-3 col-sm-2">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                <ContentTemplate>
-                    <div class="col-xl-1 col-sm-2">
                         <asp:DropDownList ID="ddlEstadoCivil" runat="server" Height="40px" Width="249px" CssClass="btn btn-secondary dropdown-toggle">
 				        </asp:DropDownList>
-                     </div>
                 </ContentTemplate> 
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="ddlEstadoCivil" EventName="SelectedIndexChanged" />
                 </Triggers>
             </asp:UpdatePanel>
-
-        </div>
-        <div class="row">
-            <div class="col-xl-2 col-sm-2">
-            	<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Estado Civil requerido" ControlToValidate="ddlEstadoCivil" InitialValue="-1"></asp:RequiredFieldValidator>
             </div>
         </div>
-
+        <br />
         <!--Clave UnicaOP-->
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label1" CssClass="control-label col-sm-2" runat="server"  >Clave Unica:</asp:Label>
             </div>
-            <div class="col-xl-2 col-sm-2">
-               <asp:TextBox ID="txtClaveUnica" CssClass="form-control" runat="server" maxlength="3" Width="249px" ViewStateMode="Disabled" pattern="[0-9]+{2,3}" oninput="maximo(this);" required onkeypress="return SoloNumeros(event)"></asp:TextBox>
+            <div class="col-xl-3 col-sm-2">
+               <asp:TextBox ID="txtClaveUnica" CssClass="form-control" runat="server" maxlength="3" Width="249px" ViewStateMode="Disabled" pattern="[0-9]+{2,3}" oninput="maximo(this);"  onkeypress="return SoloNumeros(event)"></asp:TextBox>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtClaveUnica" ErrorMessage="Clave Unica Requerida"></asp:RequiredFieldValidator>    
+            <div class="col-xl-3 col-sm-2">
                </div>
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                <asp:RegularExpressionValidator ID="RegularExpressionValidator8" runat="server" ErrorMessage="Valor no valido" ControlToValidate="txtClaveUnica" ValidationExpression="\d{3}"></asp:RegularExpressionValidator>
             </div>
         </div>
         <!--Clave UnicaED-->
         <!--NombreOP-->
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label4" CssClass="control-label col-sm-2" runat="server"  > Nombre:</asp:Label>
             </div>
-            <div class="col-xl-2 col-sm-2">
-                <asp:TextBox maxlength="15" minlength="3" ID="txtNombre" CssClass="form-control" pattern="[A-Za-z\sáéíóúnÑ]+{3,15}" oninput="maximoNom(this);" onkeypress="return SoloLetras(event)" runat="server" Width="249px" ViewStateMode="Disabled" required></asp:TextBox>       
+            <div class="col-xl-3 col-sm-2">
+                <asp:TextBox maxlength="15" minlength="3" ID="txtNombre" CssClass="form-control" pattern="[A-Za-z\sáéíóúnÑ]+{3,15}" oninput="maximoNom(this);" onkeypress="return SoloLetras(event)" runat="server" Width="249px" ViewStateMode="Disabled" ></asp:TextBox>       
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtNombre" ErrorMessage="Nombre Requerido"></asp:RequiredFieldValidator>
+            <div class="col-xl-3 col-sm-2">
              </div>
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txtNombre" ErrorMessage="Valor no Valido" ValidationExpression="^[A-Za-zÑñ\sáéíóúñÑ]+$"></asp:RegularExpressionValidator>    
             </div>
-            <div class="col-xl-2 col-sm-2"></div>
+            <div class="col-xl-3 col-sm-2"></div>
         </div>
         <!--NombreED-->
         <!--APaternoOP-->
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label5" CssClass="control-label col-sm-2" runat="server" >A Paterno:</asp:Label>
             </div>
-            <div class="col-xl-2 col-sm-2">
-                <asp:TextBox maxlength="15" CssClass="form-control" minlength="3" ID="txtAPaterno" pattern="[A-Za-z\sáéíóúñÑ]+{3,15}" oninput="maximoNom(this);" onkeypress="return SoloLetras(event)" runat="server" Width="249px" ViewStateMode="Disabled" required></asp:TextBox>
+            <div class="col-xl-3 col-sm-2">
+                <asp:TextBox maxlength="15" CssClass="form-control" minlength="3" ID="txtAPaterno" pattern="[A-Za-z\sáéíóúñÑ]+{3,15}" oninput="maximoNom(this);" onkeypress="return SoloLetras(event)" runat="server" Width="249px" ViewStateMode="Disabled" ></asp:TextBox>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtAPaterno" ErrorMessage="Apellido Requerido"></asp:RequiredFieldValidator>
+            <div class="col-xl-3 col-sm-2">
             </div>
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txtAPaterno" ErrorMessage="Valor no valido" ValidationExpression="^[A-Za-zÑñ\sáéíóúñÑ]+$"></asp:RegularExpressionValidator>
             </div>
         </div>
         <!--APaternoED-->
         <!--AMaternoOP-->
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label6" CssClass="control-label col-sm-2" runat="server"  >A Materno:</asp:Label>
             </div>
-            <div class="col-xl-2 col-sm-2">
-                <asp:TextBox ID="txtAMaterno" CssClass="form-control" runat="server" Width="248px" maxlength="15" minlength="3" oninput="maximoNom(this);" pattern="[A-Za-z\sáéíóúnÑ]+{3,15}" ViewStateMode="Disabled" onkeypress="return SoloLetras(event)"></asp:TextBox>
+            <div class="col-xl-3 col-sm-2">
+                <asp:TextBox ID="txtAMaterno" CssClass="form-control" runat="server" Width="249px" maxlength="15" minlength="3" oninput="maximoNom(this);" pattern="[A-Za-z\sáéíóúnÑ]+{3,15}" ViewStateMode="Disabled" onkeypress="return SoloLetras(event)"></asp:TextBox>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-2 col-sm-2">
+            <div class="col-xl-3 col-sm-2">
                  <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="txtAMaterno" ErrorMessage="Valor no valido" ValidationExpression="^[A-Za-zÑñ\sáéíóúñÑ]+$"></asp:RegularExpressionValidator>
             </div>
         </div>
         <!--AMaternoED-->
         <!--TextCaledarOP-->
     <div class="row">
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
                 <asp:Label ID="Label7" CssClass="control-label col-sm-2"  runat="server"  >Fecha de Nacimiento</asp:Label>
         </div>
-        <div class="col-xl-1 col-sm-1">  
+        <div class="col-xl-3 col-sm-1">  
 			<asp:ImageButton ID="imgButton" runat="server" Height="25px" ImageUrl="~/Images/Calendario.png" Width="25px" />
         
-            <asp:TextBox ID="txtCalendar2" format="dd/MM/yyyy" CssClass="form-control" runat="server" Width="248px"></asp:TextBox>
+            <asp:TextBox ID="txtCalendar2"  CssClass="form-control" runat="server" Width="249px"></asp:TextBox>
 		</div>
             <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd/MM/yyyy" PopupButtonID="imgButton" PopupPosition="TopRight" TargetControlID="txtCalendar2" BehaviorID="clCalendar" /> 
         
     </div>
     <div class="row">
-    	<asp:RequiredFieldValidator ID="RequiredFieldValidator10" CssClass="form-control" runat="server" ControlToValidate="txtCalendar2" ErrorMessage="Fecha Requerida"></asp:RequiredFieldValidator>
     </div>
     	<asp:RegularExpressionValidator ID="RegularExpressionValidator9" runat="server" ControlToValidate="txtCalendar2" ErrorMessage="Formato de fecha no valido" ValidationExpression="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$"></asp:RegularExpressionValidator>
     <br />
@@ -209,49 +175,47 @@
     <!--TextCaledarED-->
     <!--NumeroHermanosOP-->
     <div class="row">
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
             <asp:Label ID="Label10" CssClass="control-label col-sm-2" runat="server"  >Numero de Hermanos</asp:Label>
         </div>
-        <div class="col-xl-2 col-sm-2">
-            <asp:TextBox ID="txtNumeroHermanos" CssClass="form-control" oninput="maximoHer(this);" pattern="[0-9]+{1,2}" maxlength="2" onkeypress="return SoloNumeros(event)" required runat="server" style="margin-left: 4px" Width="250px"></asp:TextBox>    
+        <div class="col-xl-3 col-sm-2">
+            <asp:TextBox ID="txtNumeroHermanos" CssClass="form-control" oninput="maximoHer(this);" pattern="[0-9]+{1,2}" maxlength="2" onkeypress="return SoloNumeros(event)"  runat="server"  Width="249px"></asp:TextBox>    
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6"  runat="server" ControlToValidate="txtNumeroHermanos" ErrorMessage="Numero de Requerido"></asp:RequiredFieldValidator>
         </div>
     </div>
     <!--NumeroHermanosED-->
     <!--CorreoElectronicoOP-->
 	<div class="row">
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
              <asp:Label ID="Label11" CssClass="control-label col-sm-2" runat="server"  >Correo Electronico</asp:Label>
         </div>
-        <div class="col-xl-2 col-sm-2">
-            <asp:TextBox ID="txtCorreoElectronico" runat="server" CssClass="form-control" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Width="244px"></asp:TextBox>
+        <div class="col-xl-3 col-sm-2">
+            <asp:TextBox ID="txtCorreoElectronico" runat="server" CssClass="form-control" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Width="249px"></asp:TextBox>
         </div>
     </div>
 	<div class="row">
-        <div class="col-xl-2 col-sm-2">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCorreoElectronico" ErrorMessage="Correo Requerido"></asp:RequiredFieldValidator>
+        <div class="col-xl-3 col-sm-2">
         </div>
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Formato no valido" ControlToValidate="txtCorreoElectronico" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
         </div>
 	</div>
 	<!--CorreoElectronicoED-->
     <!--RFCOP-->
     <div class="row">
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
             <asp:Label ID="Label12" CssClass="control-label col-sm-2" runat="server"  >RFC Empresa</asp:Label>
         </div>
-        <div class="col-xl-2 col-sm-2">
-            <asp:TextBox ID="txtRFC" maxlength="13" CssClass="form-control" oninput="maximoRFC(this);" runat="server" pattern="^[a-zA-Z]{3,4}(\d{6})((\D|\d){2,3})?$" Width="247px"></asp:TextBox>
+        <div class="col-xl-3 col-sm-2">
+            <asp:TextBox ID="txtRFC" maxlength="13" CssClass="form-control" oninput="maximoRFC(this);" runat="server" Width="249px"></asp:TextBox>
         </div>
     </div>
 	<div class="row">
-        <div class="col-xl-2 col-sm-2">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtRFC" ErrorMessage="RFC Requerido"></asp:RequiredFieldValidator>
+        <div class="col-xl-3 col-sm-2">
         </div>
         <div class="auto-style3">
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtRFC" ErrorMessage="Formato no valido " ValidationExpression="^[a-zA-Z]{3,4}(\d{6})((\D|\d){2,3})?$"></asp:RegularExpressionValidator>
@@ -260,18 +224,17 @@
     <!--RFCED-->
     <!--CodigoOP-->
     <div class="row">
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
             <asp:Label ID="Label13" CssClass="control-label col-sm-2" runat="server"  >Codigo Postal</asp:Label>
         </div>
-        <div class="col-xl-2 col-sm-2">
-            <asp:TextBox ID="txtCodigoPostal" CssClass="form-control" onkeypress="return SoloNumeros(event);" pattern="^[0-5][0-9]{3}[0-9]$"  maxlength="5" oninput="maximoPstal(this);" runat="server" Width="246px"></asp:TextBox>
+        <div class="col-xl-3 col-sm-2">
+            <asp:TextBox ID="txtCodigoPostal" CssClass="form-control" onkeypress="return SoloNumeros(event);"   maxlength="5" oninput="maximoPstal(this);" runat="server" Width="249px"></asp:TextBox>
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-2 col-sm-2">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtCodigoPostal" ErrorMessage="Codigo Postal Requerido"></asp:RequiredFieldValidator>
+        <div class="col-xl-3 col-sm-2">
         </div>
-        <div class="col-xl-2 col-sm-2">
+        <div class="col-xl-3 col-sm-2">
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtCodigoPostal" ErrorMessage="Formato no valido" ValidationExpression="^[0-5][0-9]{3}[0-9]$"></asp:RegularExpressionValidator>
         </div>
     </div>
@@ -283,10 +246,10 @@
     </div>
     <div class="row">
         <div class="col-2">
-            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" onclick="btnAceptar_Click" CssClass="btn btn-primary" ViewStateMode="Disabled" />  
+            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" OnClientClick="return comprueba();" onclick="btnAceptar_Click" CssClass="btn btn-primary" ViewStateMode="Disabled" />  
         </div>
         <div class="col-2 ">
-            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" onclick="btnCancelar_Click" CssClass="btn btn-danger" ViewStateMode="Disabled" />
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" onclick="btnCancelar_Click" CssClass="btn btn-danger" ViewStateMode="Disabled" CausesValidation="False" />
         </div>
     </div>
     <script type="text/javascript">
@@ -348,6 +311,45 @@
 				obj.value = obj.value.slice(0, obj.maxlength);
             }
         }
+		function comprueba() {
+			var elemento = document.getElementById("txtClaveUnica").value
+			var elemento1 = document.getElementById("txtNombre").value
+			var elemento2 = document.getElementById("txtAPaterno").value
+			var elemento4 = document.getElementById("txtNumeroHermanos").value
+			var elemento5 = document.getElementById("txtCorreoElectronico").value
+			var elemento6 = document.getElementById("txtCodigoPostal").value
+			var elemento7 = document.getElementById("txtCalendar2").value
+			var elemento8 = document.getElementById("ddlSexo").value
+			var elemento9 = document.getElementById("ddlEstadoCivil").value
+			if (elemento == "") {
+				alert("Clave unica Obligatoria")
+				return false
+			} else if (elemento1 == "") {
+				alert("Nombre Obligatorio")
+				return false
+			} else if (elemento2 == "") {
+				alert("Apellido Paterno Obligatorio")
+				return false
+			} else if (elemento4 == "") {
+				alert("Numero de hermanos Obligatorio")
+				return false
+			} else if (elemento5 == "") {
+				alert("Correo Electronico Obligatorio")
+				return false
+			} else if (elemento6 == "") {
+				alert("Codigo postal Obligatorio")
+				return false
+			} else if (elemento7 == "") {
+				alert("Fecha de Nacimieno Obligatoria")
+				return false
+			} else if (elemento8 == "-1") {
+				alert("Sexo Obligatorio")
+				return false
+			} else if (elemento9 == "-1") {
+				alert("Estado civil Obligatorio")
+				return false
+			}
+		}
 	</script>
         <br />
         </div>

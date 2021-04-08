@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PersonaUtttModelStoreContainer" CdmEntityContainer="Personas">
+    <EntitySetMapping Name="CatSexo">
+      <EntityTypeMapping TypeName="PersonaUtttModel.CatSexo">
+        <MappingFragment StoreEntitySet="CatSexo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="strValor" ColumnName="strValor" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Direccion">
+      <EntityTypeMapping TypeName="PersonaUtttModel.Direccion">
+        <MappingFragment StoreEntitySet="Direccion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idPersona" ColumnName="idPersona" />
+          <ScalarProperty Name="strCalle" ColumnName="strCalle" />
+          <ScalarProperty Name="strNumero" ColumnName="strNumero" />
+          <ScalarProperty Name="strColonia" ColumnName="strColonia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="PersonaUtttModel.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="strClaveUnica" ColumnName="strClaveUnica" />
+          <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+          <ScalarProperty Name="strAPaterno" ColumnName="strAPaterno" />
+          <ScalarProperty Name="strAMaterno" ColumnName="strAMaterno" />
+          <ScalarProperty Name="idCatSexo" ColumnName="idCatSexo" />
+          <ScalarProperty Name="dtFechaDNaci" ColumnName="dtFechaDNaci" />
+          <ScalarProperty Name="intNumHermano" ColumnName="intNumHermano" />
+          <ScalarProperty Name="strCorreoElectronico" ColumnName="strCorreoElectronico" />
+          <ScalarProperty Name="intCodigoPostal" ColumnName="intCodigoPostal" />
+          <ScalarProperty Name="strRFC" ColumnName="strRFC" />
+          <ScalarProperty Name="strCodigoPostal" ColumnName="strCodigoPostal" />
+          <ScalarProperty Name="strCodigoP" ColumnName="strCodigoP" />
+          <ScalarProperty Name="idCatEstadoCivil" ColumnName="idCatEstadoCivil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="PersonaUtttModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CatEstadoCivil">
+      <EntityTypeMapping TypeName="PersonaUtttModel.CatEstadoCivil">
+        <MappingFragment StoreEntitySet="CatEstadoCivil">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="strValor" ColumnName="strValor" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbo_EstadoLogin">
+      <EntityTypeMapping TypeName="PersonaUtttModel.dbo_EstadoLogin">
+        <MappingFragment StoreEntitySet="dbo_EstadoLogin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="strNombre" ColumnName="strNombre" />
+          <ScalarProperty Name="strDescripcion" ColumnName="strDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dbo_Login">
+      <EntityTypeMapping TypeName="PersonaUtttModel.dbo_Login">
+        <MappingFragment StoreEntitySet="dbo_Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="strUsuario" ColumnName="strUsuario" />
+          <ScalarProperty Name="strContraseña" ColumnName="strContraseña" />
+          <ScalarProperty Name="fkEstado" ColumnName="fkEstado" />
+          <ScalarProperty Name="dtFehca" ColumnName="dtFehca" />
+          <ScalarProperty Name="fkPersona" ColumnName="fkPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

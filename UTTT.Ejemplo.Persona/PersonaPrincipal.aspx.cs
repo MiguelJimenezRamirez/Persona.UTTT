@@ -185,10 +185,30 @@ namespace UTTT.Ejemplo.Persona
                 DataContext dcDelete = new DcGeneralDataContext();
                 UTTT.Ejemplo.Linq.Data.Entity.Persona persona = dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().First(
                     c => c.id == _idPersona);
-                dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().DeleteOnSubmit(persona);
-                dcDelete.SubmitChanges();
-                this.showMessage("El registro se agrego correctamente.");
-                this.DataSourcePersona.RaiseViewChanged();                
+                if (persona.fkLogin == null ) {
+                    dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().DeleteOnSubmit(persona);
+                    dcDelete.SubmitChanges();
+                    this.showMessage("El registro se agrego correctamente.");
+                    this.DataSourcePersona.RaiseViewChanged();
+				}else 
+                {
+                    //eliminar el login
+                    //elimina fk de persona
+                    DataContext dcGuardar = new DcGeneralDataContext();
+                    var _idUsuario = persona.fkLogin;
+                    persona.fkLogin = null;
+                    dcGuardar.SubmitChanges();
+                    //elimina registro
+                    UTTT.Ejemplo.Linq.Data.Entity.dbo_Login login = dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.dbo_Login>().First(
+                        c => c.id == _idUsuario);
+                    dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.dbo_Login>().DeleteOnSubmit(login);
+                    dcDelete.SubmitChanges();
+                    //eliminar la persona este esta bien
+                    dcDelete.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().DeleteOnSubmit(persona);
+                    dcDelete.SubmitChanges();
+                    this.showMessage("El registro se agrego correctamente.");
+                    this.DataSourcePersona.RaiseViewChanged();
+                }
             }
             catch (Exception _e)
             {
@@ -219,7 +239,6 @@ namespace UTTT.Ejemplo.Persona
 		protected void txtNombre_TextChanged(object sender, EventArgs e)
 		{
             ScriptManager.RegisterClientScriptBlock(UpdatePanel1, this.GetType(),"","", true);
-  
         }
 
 		protected void ddlSexo_SelectedIndexChanged(object sender, LinqDataSourceSelectEventArgs e)
@@ -293,5 +312,20 @@ namespace UTTT.Ejemplo.Persona
                 throw _e;
             }
         }
+
+		protected void Button1_Click(object sender, EventArgs e)
+		{
+            Response.Redirect("/views/Principal/ModuloPrincipal.aspx");
+        }
+
+		protected void dgvPersonas_SelectedIndexChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		protected void ddlSexo_SelectedIndexChanged1(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

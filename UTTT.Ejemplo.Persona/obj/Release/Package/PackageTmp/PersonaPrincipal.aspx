@@ -77,7 +77,7 @@
             
         <div class="row">
             <div class="col-xl-1 col-sm-1">
-                <asp:Label ID="Label1" runat="server" Text="Label" CssClass="control-label col-sm-2">Normbre:</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Label" CssClass="control-label col-sm-2 ">Normbre:</asp:Label>
             </div>
             <div class="col-xl-1 col-sm-1">
                 <asp:TextBox ID="txtNombre" runat="server" Width="174px" ViewStateMode="Enabled" CssClass="form-control" OnTextChanged="txtNombre_TextChanged" AutoCompleteType="Search" AutoPostBack="True" CausesValidation="True"></asp:TextBox>

@@ -49,10 +49,19 @@
     <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -85,8 +94,10 @@
     <Content Include="DireccionExtraManager.aspx" />
     <Content Include="DireccionManager.aspx" />
     <Content Include="Error.aspx" />
+    <Content Include="Images\219986.png" />
     <Content Include="Images\delrecord_16x16.png" />
     <Content Include="Images\editrecord_16x16.png" />
+    <Content Include="Images\People_Business-08.png" />
     <Content Include="Images\Pixir-1-1-300x181.png" />
     <Content Include="Images\printrecord_16x16.png" />
     <Content Include="Images\Calendario.png" />
@@ -101,6 +112,13 @@
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Scripts\PersonaAgregar.js" />
     <Content Include="Scripts\PersonaManager.js" />
+    <Content Include="views\Login\EnvioExitoso.aspx" />
+    <Content Include="views\Login\Login.aspx" />
+    <Content Include="views\Login\NuevaContra.aspx" />
+    <Content Include="views\Login\RecuperarContra.aspx" />
+    <Content Include="views\Principal\ModuloPrincipal.aspx" />
+    <Content Include="views\Principal\UsuarioManager.aspx" />
+    <Content Include="views\Principal\UsuarioPrincipal.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -176,6 +194,55 @@
       <DependentUpon>PersonaPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="views\Login\EnvioExitoso.aspx.cs">
+      <DependentUpon>EnvioExitoso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Login\EnvioExitoso.aspx.designer.cs">
+      <DependentUpon>EnvioExitoso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\Login\NuevaContra.aspx.cs">
+      <DependentUpon>NuevaContra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Login\NuevaContra.aspx.designer.cs">
+      <DependentUpon>NuevaContra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\Login\RecuperarContra.aspx.cs">
+      <DependentUpon>RecuperarContra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Login\RecuperarContra.aspx.designer.cs">
+      <DependentUpon>RecuperarContra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\Principal\ModuloPrincipal.aspx.cs">
+      <DependentUpon>ModuloPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Principal\ModuloPrincipal.aspx.designer.cs">
+      <DependentUpon>ModuloPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\Principal\UsuarioManager.aspx.cs">
+      <DependentUpon>UsuarioManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Principal\UsuarioManager.aspx.designer.cs">
+      <DependentUpon>UsuarioManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="views\Principal\UsuarioPrincipal.aspx.cs">
+      <DependentUpon>UsuarioPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\Principal\UsuarioPrincipal.aspx.designer.cs">
+      <DependentUpon>UsuarioPrincipal.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -187,6 +254,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

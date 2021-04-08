@@ -9,3 +9,13 @@ h1 {
 .colorFondo {
 	background: #eeeeee;
 }
+html {
+	font-family: Arial;
+	line-height: 1.15;
+	-webkit-text-size-adjust 100%;
+	display: inline-block;
+	padding: 0px 6px;
+	margin: 0px 4px;
+	max-width: 1200px;
+	min-width: 640px;
+}

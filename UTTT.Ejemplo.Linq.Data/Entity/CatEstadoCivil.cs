@@ -9,7 +9,7 @@ namespace UTTT.Ejemplo.Linq.Data.Entity
 	{
 		public override string ToString()
 		{
-			return base.ToString();
+			return this.strValor;
 		}
 	}
 }

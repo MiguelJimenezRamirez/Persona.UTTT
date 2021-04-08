@@ -77,7 +77,7 @@
             
         <div class="row">
             <div class="col-xl-1 col-sm-1">
-                <asp:Label ID="Label1" runat="server" Text="Label" CssClass="control-label col-sm-2">Normbre:</asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="Label" CssClass="control-label col-sm-2 ">Normbre:</asp:Label>
             </div>
             <div class="col-xl-1 col-sm-1">
                 <asp:TextBox ID="txtNombre" runat="server" Width="174px" ViewStateMode="Enabled" CssClass="form-control" OnTextChanged="txtNombre_TextChanged" AutoCompleteType="Search" AutoPostBack="True" CausesValidation="True"></asp:TextBox>
@@ -95,7 +95,7 @@
                 <asp:Label ID="Label2" CssClass="control-label col-sm-2" runat="server" Text="Label">Sexo:</asp:Label>
             </div>
             <div class="col-xl-1 col-sm-1">
-                <asp:DropDownList ID="ddlSexo" CssClass="btn btn-secondary dropdown-toggle" runat="server" Height="39px" Width="177px" AutoPostBack="True" ></asp:DropDownList>
+                <asp:DropDownList ID="ddlSexo" CssClass="btn btn-secondary dropdown-toggle" runat="server" Height="39px" Width="177px" AutoPostBack="True" OnSelectedIndexChanged="ddlSexo_SelectedIndexChanged1" ></asp:DropDownList>
             </div>
         </div>
         <div class="row">
@@ -120,7 +120,7 @@
         <asp:GridView ID="dgvPersonas" runat="server"
                 AllowPaging="True" AutoGenerateColumns="False" DataSourceID="DataSourcePersona" CellPadding="3" GridLines="Horizontal" 
                 onrowcommand="dgvPersonas_RowCommand"  
-                ViewStateMode="Disabled" class="table table-active table-striped  table-responsive-md table-responsive-lg table-responsive-xl">
+                ViewStateMode="Disabled" class="table table-active table-striped  table-responsive-md table-responsive-lg table-responsive-xl" OnSelectedIndexChanged="dgvPersonas_SelectedIndexChanged">
             <Columns>
                     <asp:BoundField DataField="strClaveUnica" HeaderText="Clave Unica" ReadOnly="True" SortExpression="strClaveUnica" />
                     <asp:BoundField DataField="strNombre" HeaderText="Nombre" ReadOnly="True" SortExpression="strNombre" />
@@ -153,6 +153,9 @@
                    </ContentTemplate> 
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="btnBuscar" EventName="click"/>
+                    <asp:AsyncPostBackTrigger ControlID="txtNombre" EventName="TextChanged"></asp:AsyncPostBackTrigger>
+                    <asp:AsyncPostBackTrigger ControlID="ddlSexo" EventName="SelectedIndexChanged"></asp:AsyncPostBackTrigger>
+                    <asp:AsyncPostBackTrigger ControlID="ddlEstadoCivil" EventName="SelectedIndexChanged"></asp:AsyncPostBackTrigger>
                 </Triggers>
               <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="txtNombre" EventName="TextChanged" />
@@ -174,6 +177,7 @@
         Select="new (strNombre, strAPaterno, strAMaterno, CatSexo, strClaveUnica,id)" 
         TableName="Persona" EntityTypeName="">
     </asp:LinqDataSource>
+    	<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Salir" />
     </form>
 </body>
 </html>

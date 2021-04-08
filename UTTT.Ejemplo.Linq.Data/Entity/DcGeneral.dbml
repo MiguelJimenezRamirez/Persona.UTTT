@@ -18,6 +18,35 @@
       <Association Name="CatSexo_Persona" Member="Persona" ThisKey="id" OtherKey="idCatSexo" Type="Persona" />
     </Type>
   </Table>
+  <Table Name="mickeyjr007_SQLLogin_1.CatEstadoCivil" Member="CatEstadoCivil">
+    <Type Name="CatEstadoCivil">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strValor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="CatEstadoCivil_Persona" Member="Persona" ThisKey="id" OtherKey="idCatEstadoCivil" Type="Persona" />
+    </Type>
+  </Table>
+  <Table Name="mickeyjr007_SQLLogin_1.[dbo.EstadoLogin]" Member="dbo_EstadoLogin">
+    <Type Name="dbo_EstadoLogin">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="strNombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="dbo_EstadoLogin_dbo_Login" Member="dbo_Login" ThisKey="id" OtherKey="fkEstado" Type="dbo_Login" />
+    </Type>
+  </Table>
+  <Table Name="mickeyjr007_SQLLogin_1.[dbo.Login]" Member="dbo_Login">
+    <Type Name="dbo_Login">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="strUsuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="strContraseña" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="fkEstado" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="dtFehca" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="fkPersona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dbo_Login_Persona" Member="Persona1" ThisKey="id" OtherKey="fkLogin" Type="Persona" />
+      <Association Name="dbo_EstadoLogin_dbo_Login" Member="dbo_EstadoLogin" ThisKey="fkEstado" OtherKey="id" Type="dbo_EstadoLogin" IsForeignKey="true" />
+      <Association Name="Persona_dbo_Login" Member="Persona" ThisKey="fkPersona" OtherKey="id" Type="Persona" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Persona" Member="Persona">
     <Type Name="Persona">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -34,17 +63,12 @@
       <Column Name="strCodigoPostal" Type="System.Data.Linq.Binary" DbType="VarBinary(6)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="strCodigoP" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
       <Column Name="idCatEstadoCivil" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fkLogin" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Persona_Direccion" Member="Direccion" ThisKey="id" OtherKey="idPersona" Type="Direccion" />
-      <Association Name="CatSexo_Persona" Member="CatSexo" ThisKey="idCatSexo" OtherKey="id" Type="CatSexo" IsForeignKey="true" />
+      <Association Name="Persona_dbo_Login" Member="dbo_Login" ThisKey="id" OtherKey="fkPersona" Type="dbo_Login" />
       <Association Name="CatEstadoCivil_Persona" Member="CatEstadoCivil" ThisKey="idCatEstadoCivil" OtherKey="id" Type="CatEstadoCivil" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="mickeyjr007_SQLLogin_1.CatEstadoCivil" Member="CatEstadoCivil">
-    <Type Name="CatEstadoCivil">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="strValor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="strDescripcion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="CatEstadoCivil_Persona" Member="Persona" ThisKey="id" OtherKey="idCatEstadoCivil" Type="Persona" />
+      <Association Name="CatSexo_Persona" Member="CatSexo" ThisKey="idCatSexo" OtherKey="id" Type="CatSexo" IsForeignKey="true" />
+      <Association Name="dbo_Login_Persona" Member="dbo_Login1" ThisKey="fkLogin" OtherKey="id" Type="dbo_Login" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

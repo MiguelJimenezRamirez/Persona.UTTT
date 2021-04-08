@@ -115,3 +115,7 @@ C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.csproj.CopyComplete
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.dll
 C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\obj\Debug\UTTT.Ejemplo.Persona.pdb
+C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\EntityFramework.dll
+C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\EntityFramework.SqlServer.dll
+C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\EntityFramework.xml
+C:\Users\niki_\Desktop\web\TrabajoFinal\UTTT.Ejemplo.Persona-master\UTTT.Ejemplo.Persona\bin\EntityFramework.SqlServer.xml
