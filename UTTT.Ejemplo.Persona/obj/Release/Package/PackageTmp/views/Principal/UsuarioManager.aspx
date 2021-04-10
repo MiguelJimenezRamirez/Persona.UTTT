@@ -15,13 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-	<style type="text/css">
-		.auto-style3 {
-			left: 0px;
-			top: 0px;
-		}
-	</style>
-</head>
+	</head>
 <body>
     <form id="form1" runat="server" class="colorFondo">
         <div class="container well">
@@ -44,7 +38,7 @@
 				</div>
 				<div class="col-xl-3 col-sm-2">
 					<asp:TextBox ID="txtPersona" runat="server"  CssClass="form-control" OnClientClick="return comprueba();" Enabled="False"></asp:TextBox>
-					<asp:DropDownList ID="ddlPersonaCompleto" runat="server"  CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="249px"></asp:DropDownList> 
+					<asp:DropDownList ID="ddlPersonaCompleto" runat="server"  CssClass="btn btn-secondary dropdown-toggle" Height="40px" Width="255px"></asp:DropDownList> 
                 </div>
 			</div>
 			<div class="row">
@@ -63,7 +57,7 @@
 					<asp:Label ID="Label3" runat="server" CssClass="control-label col-sm-2" Text="Contraseña:"></asp:Label>
 				</div>
 				<div class="col-xl-3 col-sm-2">
-					<asp:TextBox ID="txtContraseña" CssClass="form-control" maxlength="30" OnClientClick="return comprueba();" runat="server"></asp:TextBox>
+					<asp:TextBox ID="txtContraseña" type="password" CssClass="form-control" maxlength="30" OnClientClick="return comprueba();" runat="server"></asp:TextBox>
 				</div>
 				<div class="col-xl-3 col-sm-2">
 					<asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtContraseña" ErrorMessage="La contraseña debe tener entre 8 y 16 caracteres, un digito y al menos una mayúscula." ValidationExpression="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"></asp:RegularExpressionValidator>
@@ -79,7 +73,7 @@
 				</div>	
 				
 				<div class="col-xl-3 col-sm-2">
-					<asp:TextBox ID="txtContraCompa" CssClass="form-control" runat="server"></asp:TextBox>
+					<asp:TextBox ID="txtContraCompa" type="password" CssClass="form-control" runat="server"></asp:TextBox>
 				</div>
 			</div>
 			

@@ -59,6 +59,8 @@ namespace UTTT.Ejemplo.Persona.views.Principal
 							dcGlobal.GetTable<UTTT.Ejemplo.Linq.Data.Entity.Persona>().Where(p=> p.fkLogin == null).ToList();
 						this.ddlPersonaCompleto.DataTextField = "NombreCompleto";
 						this.ddlPersonaCompleto.DataValueField = "id";
+						UTTT.Ejemplo.Linq.Data.Entity.Persona persona = new UTTT.Ejemplo.Linq.Data.Entity.Persona();
+						
 						this.ddlPersonaCompleto.DataSource = personaLista;
 						this.ddlPersonaCompleto.DataBind();
 						txtFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -113,6 +115,11 @@ namespace UTTT.Ejemplo.Persona.views.Principal
 				UTTT.Ejemplo.Linq.Data.Entity.Persona persona = new Linq.Data.Entity.Persona();
 				if (this.idUsuario == 0)
 				{
+					//validar que el drop este seleccionado
+					if(ddlPersonaCompleto.Equals(-1))
+					{
+						lblMensaje.Text = "Ingrese un usuario";
+					}
 					//validar que no exista, poner visible
 					try
 					{
